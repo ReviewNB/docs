@@ -7,3 +7,6 @@ if ! git diff-index --quiet HEAD --; then
 fi
 
 cp -r build/html/* docs/
+git add --all
+git commit -m "Trigger github pages deployment"
+git push
