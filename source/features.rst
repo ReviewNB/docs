@@ -47,7 +47,7 @@ Features
 |br|
 
 
-* **Bot comments on PR to make it easy to jump from GitHub PR to ReviewNB PR page.**
+* **Bot comments on PR to easily jump from GitHub PR to ReviewNB PR page**
 
 .. image:: ./images/f5.png
    :scale: 45 %
