@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Run the application &mdash; ReviewNB 0.0.1 documentation</title>
+  <title>Installation &mdash; ReviewNB 0.0.1 documentation</title>
   
 
   
@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Connect to Database" href="database.html" />
+    <link rel="next" title="Create Database" href="database.html" />
     <link rel="prev" title="Self Hosting ReviewNB (on-prem)" href="index.html" /> 
 
   
@@ -88,13 +88,13 @@
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosting ReviewNB (on-prem)</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Run the application</a><ul>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisite">Prerequisite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-the-image">Run the image</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="database.html">Connect to Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html">Setup GitHub App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
@@ -146,7 +146,7 @@
         
           <li><a href="index.html">Self Hosting ReviewNB (on-prem)</a> &raquo;</li>
         
-      <li>Run the application</li>
+      <li>Installation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -165,8 +165,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="run-the-application">
-<h1>Run the application<a class="headerlink" href="#run-the-application" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
 <p>ReviewNB application is distributed as a docker image via <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>. Once your on-prem request is approved, we create a private dockerhub repository for your use &amp; grant you access to it.</p>
 <p>You can use deployment tool of your choice to run the docker image. Below we show a simple way to run the docker image from command line.</p>
 <div class="admonition note">
@@ -175,7 +175,11 @@
 </div>
 <div class="section" id="prerequisite">
 <h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
-<p>Docker installation is required, see the <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a></p>
+<ul class="simple">
+<li>Docker installation is required, see the <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a></li>
+<li><a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a></li>
+<li><a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a></li>
+</ul>
 </div>
 <div class="section" id="run-the-image">
 <h2>Run the image<a class="headerlink" href="#run-the-image" title="Permalink to this headline">¶</a></h2>
@@ -191,12 +195,19 @@
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo docker run --detach <span class="se">\</span>
     --publish <span class="m">443</span>:443 --publish <span class="m">80</span>:80 <span class="se">\</span>
     --restart always <span class="se">\</span>
-    reviewnb/xyz-inc:latest
+    --env <span class="nv">GITHUB_APP_ID</span><span class="o">=</span>&lt;your_gh_app_id&gt;
+<span class="go">    --env GITHUB_APP_PEM=&lt;your_gh_app_private_key&gt;</span>
+<span class="go">    --env GITHUB_CLIENT_ID=&lt;your_gh_app_client_id&gt;</span>
+<span class="go">    --env GITHUB_CLIENT_SECRET=&lt;your_gh_app_client_secret&gt;</span>
+<span class="go">    --env DB_URL=&lt;your-postgres-connection-string&gt;</span>
+<span class="go">    reviewnb/xyz-inc:latest</span>
 </pre></div>
 </div>
 </li>
 </ul>
 <p>This will download the image, start a container and publish ports needed to access the application over HTTP and HTTPS. The container will automatically restart after a system reboot.</p>
+<p>You can find app environment variables from <a class="reference internal" href="gh_app.html#get-app-config"><span class="std std-ref">Get App Config</span></a> prerequisite &amp; DB_URL from <a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a> prerequisite.
+If you are using other deployment tools for running containers, please use that tools standard method to provide these environment variables: <code class="docutils literal"><span class="pre">GITHUB_APP_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_APP_PEM</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_SECRET</span></code>, <code class="docutils literal"><span class="pre">DB_URL</span></code></p>
 </div>
 </div>
 
@@ -208,7 +219,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="database.html" class="btn btn-neutral float-right" title="Connect to Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="database.html" class="btn btn-neutral float-right" title="Create Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral" title="Self Hosting ReviewNB (on-prem)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

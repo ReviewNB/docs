@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Connect to Database &mdash; ReviewNB 0.0.1 documentation</title>
+  <title>Create Database &mdash; ReviewNB 0.0.1 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setup GitHub App" href="gh_app.html" />
-    <link rel="prev" title="Run the application" href="docker.html" /> 
+    <link rel="next" title="Create GitHub App" href="gh_app.html" />
+    <link rel="prev" title="Installation" href="docker.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -88,9 +88,9 @@
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosting ReviewNB (on-prem)</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Run the application</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Connect to Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html">Setup GitHub App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Create Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
@@ -142,7 +142,7 @@
         
           <li><a href="index.html">Self Hosting ReviewNB (on-prem)</a> &raquo;</li>
         
-      <li>Connect to Database</li>
+      <li>Create Database</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -161,9 +161,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="connect-to-database">
-<h1>Connect to Database<a class="headerlink" href="#connect-to-database" title="Permalink to this headline">¶</a></h1>
-<p>DB instructions goes here.</p>
+  <div class="section" id="create-database">
+<span id="id1"></span><h1>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h1>
+<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. You can refer to the <a href="https://www.postgresql.org/" target="_blank">official docs</a> for installation.
+Since we only store essential information the DB instance requirements are fairly low. Here’s the minimum specification we need,</p>
+<ul class="simple">
+<li>PostgreSQL Version - 9.5 and above</li>
+<li>Memory - 1GB minimum</li>
+<li>Disk Space - 16GB minimum</li>
+</ul>
+<p>Depending on your infrastructure, you can spin up your own database or use AWS RDS / GCP Cloud SQL instance. Make sure the database network allows ingress access from machines you’re going to use for hosting ReviewNB application.</p>
+<p>Note down the database connection information in the followign format,</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
+</pre></div>
+</div>
 </div>
 
 
@@ -174,10 +185,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gh_app.html" class="btn btn-neutral float-right" title="Setup GitHub App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="gh_app.html" class="btn btn-neutral float-right" title="Create GitHub App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="docker.html" class="btn btn-neutral" title="Run the application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

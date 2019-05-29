@@ -1,8 +1,9 @@
 .. include:: ../globals.rst
 
-Setup GitHub App
-=================
+.. _create_github_app:
 
+Create GitHub App
+=================
 GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via Oauth2 & lets user select repositories that ReviewNB should have access to.
 
 In this section, we'll create a GitHub app for your self hosted ReviewNB installation. At the end, we require following fields to use inside our ReviewNB installation.
@@ -79,9 +80,11 @@ Once the app is created you can scroll down to the bottom of the app page and cl
    :scale: 80 %
    :align: center
 
-Note IDs
+.. _get_app_config:
+
+Get App Config
 -----------------------------
-At the top of your newly created app you can find App ID, Client ID and Client Secret. These fields along with the private key generated in the step above is all we need from the application.
+At the top of your newly created app you can find App ID, Client ID and Client Secret. Please note down these fields along with the private key generated in the above step.
 
 .. image:: ../images/gh_app_6.png
    :scale: 80 %

@@ -29,3 +29,7 @@
 .. |official installation docs| raw:: html
 
   <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a>
+
+.. |official docs| raw:: html
+
+  <a href="https://www.postgresql.org/" target="_blank">official docs</a>
