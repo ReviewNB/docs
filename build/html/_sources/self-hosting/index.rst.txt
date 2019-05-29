@@ -1,6 +1,6 @@
 .. include:: ../globals.rst
 
-Self Hosting ReviewNB (on-prem)
+Self Hosted ReviewNB
 ===============================
 We offer self hosted ReviewNB for companies interested in running it internally. Self hosted ReviewNB works with your repositories on GitHub.com or repositories on your internal GitHub enterprise installation.
 
