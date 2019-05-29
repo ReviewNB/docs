@@ -21,3 +21,11 @@
 .. |coming soon| raw:: html
 
   <a href="https://github.com/ReviewNB/support/issues/19" target="_blank">coming soon</a>
+
+.. |Docker Hub| raw:: html
+
+  <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>
+
+.. |official installation docs| raw:: html
+
+  <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a>

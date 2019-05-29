@@ -83,13 +83,22 @@
               
             
             
-              <ul class="current">
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosting ReviewNB (on-prem)</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Get Docker image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="docker.html">Run the application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database.html">Connect to Database</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup GitHub App</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Setup GitHub App</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-new-app">Create New App</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-urls-and-genral-information">Setup URLs and Genral Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setup-permissions">Setup Permissions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#webhook-events-scope">Webhook Events &amp; Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#generate-private-key">Generate Private Key</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#note-ids">Note IDs</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
@@ -162,7 +171,60 @@
             
   <div class="section" id="setup-github-app">
 <h1>Setup GitHub App<a class="headerlink" href="#setup-github-app" title="Permalink to this headline">¶</a></h1>
-<p>FAQ goes here.</p>
+<p>GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via Oauth2 &amp; lets user select repositories that ReviewNB should have access to.</p>
+<p>In this section, we’ll create a GitHub app for your self hosted ReviewNB installation. At the end, we require following fields to use inside our ReviewNB installation.</p>
+<ul class="simple">
+<li>App ID</li>
+<li>Client ID</li>
+<li>Client secret</li>
+<li>Private Key</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Throughout this document when we say GitHub account, it can be an individual/org account on github.com or your own GitHub enterprise installation, depending on which GitHub offering you are using.</p>
+</div>
+<div class="section" id="create-new-app">
+<h2>Create New App<a class="headerlink" href="#create-new-app" title="Permalink to this headline">¶</a></h2>
+<p>Technically, any GitHub account can own the app but we recommend creating it under org account of the team who is going to maintain the ReviewNB installation.
+Login to the org account and go to <em>Settings -&gt; GitHub Apps -&gt; New GitHub App</em> as shown below.</p>
+<a class="reference internal image-reference" href="../_images/gh_app_1.png"><img alt="../_images/gh_app_1.png" class="align-center" src="../_images/gh_app_1.png" style="width: 607.8px; height: 449.4px;" /></a>
+</div>
+<div class="section" id="setup-urls-and-genral-information">
+<h2>Setup URLs and Genral Information<a class="headerlink" href="#setup-urls-and-genral-information" title="Permalink to this headline">¶</a></h2>
+<p>Fill in the general information as shown in the screenshot. For URLs, replace <em>reviewnb.&lt;your-domain-name&gt;.com</em> with actual endpoint at which you’ll be hosting ReviewNB application.</p>
+<a class="reference internal image-reference" href="../_images/gh_app_2.png"><img alt="../_images/gh_app_2.png" class="align-center" src="../_images/gh_app_2.png" style="width: 462.0px; height: 618.6px;" /></a>
+</div>
+<div class="section" id="setup-permissions">
+<h2>Setup Permissions<a class="headerlink" href="#setup-permissions" title="Permalink to this headline">¶</a></h2>
+<p>We need following permissions for enabling all the ReviewNB functionality,</p>
+<ul class="simple">
+<li>Read <em>repository contents</em> to fetch notebooks and compute diff</li>
+<li>Read <em>repository metadata</em> to fetch list of commits and PRs</li>
+<li>Read-Write access to <em>pull requests</em> to read &amp; write PR comments</li>
+<li>Read access to <em>emails</em> for user profiles</li>
+</ul>
+<p>You need to enable these under permissions section as shown below,</p>
+<a class="reference internal image-reference" href="../_images/gh_app_3.1.png"><img alt="../_images/gh_app_3.1.png" class="align-center" src="../_images/gh_app_3.1.png" style="width: 612.0px; height: 72.0px;" /></a>
+<a class="reference internal image-reference" href="../_images/gh_app_3.2.png"><img alt="../_images/gh_app_3.2.png" class="align-center" src="../_images/gh_app_3.2.png" style="width: 612.8000000000001px; height: 72.8px;" /></a>
+<a class="reference internal image-reference" href="../_images/gh_app_3.3.png"><img alt="../_images/gh_app_3.3.png" class="align-center" src="../_images/gh_app_3.3.png" style="width: 608.8000000000001px; height: 72.8px;" /></a>
+<a class="reference internal image-reference" href="../_images/gh_app_3.4.png"><img alt="../_images/gh_app_3.4.png" class="align-center" src="../_images/gh_app_3.4.png" style="width: 608.8000000000001px; height: 71.2px;" /></a>
+</div>
+<div class="section" id="webhook-events-scope">
+<h2>Webhook Events &amp; Scope<a class="headerlink" href="#webhook-events-scope" title="Permalink to this headline">¶</a></h2>
+<p>Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion. For the questioon, <em>“Where can this GitHub App be installed?”</em> choose <em>“Only on this account”</em> if all  your notebook repositories are under this org where you are creating the app, else choose <em>“Any account”</em> so other GitHub orgs and accounts can install this ReviewNB app.</p>
+<p>Click on <em>Create GitHub App</em></p>
+<a class="reference internal image-reference" href="../_images/gh_app_4.png"><img alt="../_images/gh_app_4.png" class="align-center" src="../_images/gh_app_4.png" style="width: 604.8000000000001px; height: 544.8000000000001px;" /></a>
+</div>
+<div class="section" id="generate-private-key">
+<h2>Generate Private Key<a class="headerlink" href="#generate-private-key" title="Permalink to this headline">¶</a></h2>
+<p>Once the app is created you can scroll down to the bottom of the app page and click <em>Generate a private key</em>. This will create and download a .pem file for you. Please keep this safe.</p>
+<a class="reference internal image-reference" href="../_images/gh_app_5.png"><img alt="../_images/gh_app_5.png" class="align-center" src="../_images/gh_app_5.png" style="width: 615.2px; height: 198.4px;" /></a>
+</div>
+<div class="section" id="note-ids">
+<h2>Note IDs<a class="headerlink" href="#note-ids" title="Permalink to this headline">¶</a></h2>
+<p>At the top of your newly created app you can find App ID, Client ID and Client Secret. These fields along with the private key generated in the step above is all we need from the application.</p>
+<a class="reference internal image-reference" href="../_images/gh_app_6.png"><img alt="../_images/gh_app_6.png" class="align-center" src="../_images/gh_app_6.png" style="width: 570.4px; height: 289.6px;" /></a>
+</div>
 </div>
 
 

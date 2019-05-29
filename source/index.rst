@@ -1,10 +1,5 @@
 .. include:: globals.rst
 
-.. ReviewNB documentation master file, created by
-   sphinx-quickstart on Mon May 27 22:50:43 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 Welcome to ReviewNB's documentation!
 ====================================
 Having trouble using Jupyter Notebooks effectively in your team? **Join 200+ organizations like Amazon, Microsoft, Tensorflow, fast.ai** in using |ReviewNB| for notebook code reviews.
