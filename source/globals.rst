@@ -33,3 +33,7 @@
 .. |official docs| raw:: html
 
   <a href="https://www.postgresql.org/" target="_blank">official docs</a>
+
+.. |fill the form| raw:: html
+
+  <a href="https://docs.google.com/forms/d/1zb0riYOlSl-BMs1a1Q_wUEjE8-lZqqwRaA8V-6cpkKs" target="_blank">fill the form</a>
