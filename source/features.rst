@@ -3,13 +3,21 @@
 Features
 ===============
 
+* **Install ReviewNB on repositories of your choice.**
+
+.. image:: ./images/f6.png
+   :scale: 60 %
+   :align: center
+
+|br|
+
 * **You can see visual diff for notebook changes.**
 
 .. image:: ./images/f1.png
    :scale: 45 %
    :align: center
 
-|br| |br|
+|br|
 
 
 * **Visual diff is available for all commits and pull requests on your GitHub repositories.**
@@ -43,15 +51,6 @@ Features
 
 .. image:: ./images/f5.png
    :scale: 45 %
-   :align: center
-
-|br|
-
-
-* **Install ReviewNB on repositories of your choice.**
-
-.. image:: ./images/f6.png
-   :scale: 60 %
    :align: center
 
 |br|

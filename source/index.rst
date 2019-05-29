@@ -18,5 +18,5 @@ Version control & code reviews are difficult with Jupyter Notebook's JSON format
    features
    hosted/index
    self-hosting/index
-   testimonials
    faq
+   testimonials

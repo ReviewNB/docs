@@ -30,7 +30,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Create Database" href="database.html" />
-    <link rel="prev" title="Self Hosting ReviewNB (on-prem)" href="index.html" /> 
+    <link rel="prev" title="Self Hosted ReviewNB" href="index.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -87,7 +87,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosting ReviewNB (on-prem)</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisite">Prerequisite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-the-image">Run the image</a></li>
@@ -144,7 +144,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Self Hosting ReviewNB (on-prem)</a> &raquo;</li>
+          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
         
       <li>Installation</li>
     
@@ -184,14 +184,14 @@
 <div class="section" id="run-the-image">
 <h2>Run the image<a class="headerlink" href="#run-the-image" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">Login via docker CLI using the private dockerhub repository account you have been granted access to.</p>
+<li><p class="first">Login (via docker CLI) to the private dockerhub repository account that we’ll have granted you access to.</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker login
 <span class="go">Username (reviewnb): xyz-inc-admin</span>
 <span class="go">Password: xxxxxxxx</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Run the docker image we created for you</p>
+<li><p class="first">Run the docker image we created for you,</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo docker run --detach <span class="se">\</span>
     --publish <span class="m">443</span>:443 --publish <span class="m">80</span>:80 <span class="se">\</span>
     --restart always <span class="se">\</span>
@@ -206,8 +206,8 @@
 </li>
 </ul>
 <p>This will download the image, start a container and publish ports needed to access the application over HTTP and HTTPS. The container will automatically restart after a system reboot.</p>
-<p>You can find app environment variables from <a class="reference internal" href="gh_app.html#get-app-config"><span class="std std-ref">Get App Config</span></a> prerequisite &amp; DB_URL from <a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a> prerequisite.
-If you are using other deployment tools for running containers, please use that tools standard method to provide these environment variables: <code class="docutils literal"><span class="pre">GITHUB_APP_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_APP_PEM</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_SECRET</span></code>, <code class="docutils literal"><span class="pre">DB_URL</span></code></p>
+<p>You can get app environment variables used in the above command from <a class="reference internal" href="gh_app.html#get-app-config"><span class="std std-ref">Get App Config</span></a> &amp; DB_URL from <a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a>.
+If you are using other deployment tools for running containers, please use that tools standard method to specify following environment variables: <code class="docutils literal"><span class="pre">GITHUB_APP_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_APP_PEM</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_SECRET</span></code>, <code class="docutils literal"><span class="pre">DB_URL</span></code></p>
 </div>
 </div>
 
@@ -222,7 +222,7 @@ If you are using other deployment tools for running containers, please use that 
         <a href="database.html" class="btn btn-neutral float-right" title="Create Database" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Self Hosting ReviewNB (on-prem)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral" title="Self Hosted ReviewNB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

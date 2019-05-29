@@ -19,7 +19,7 @@ Prerequisite
 
 Run the image
 --------------------------
-* Login via docker CLI using the private dockerhub repository account you have been granted access to.
+* Login (via docker CLI) to the private dockerhub repository account that we'll have granted you access to.
 
   .. code-block:: console
 
@@ -27,7 +27,7 @@ Run the image
     Username (reviewnb): xyz-inc-admin
     Password: xxxxxxxx
 
-* Run the docker image we created for you
+* Run the docker image we created for you,
 
   .. code-block:: console
 
@@ -43,5 +43,5 @@ Run the image
 
 This will download the image, start a container and publish ports needed to access the application over HTTP and HTTPS. The container will automatically restart after a system reboot.
 
-You can find app environment variables from :ref:`get_app_config` prerequisite & DB_URL from :ref:`create_database` prerequisite.
-If you are using other deployment tools for running containers, please use that tools standard method to provide these environment variables: ``GITHUB_APP_ID``, ``GITHUB_APP_PEM``, ``GITHUB_CLIENT_ID``, ``GITHUB_CLIENT_SECRET``, ``DB_URL``
+You can get app environment variables used in the above command from :ref:`get_app_config` & DB_URL from :ref:`create_database`.
+If you are using other deployment tools for running containers, please use that tools standard method to specify following environment variables: ``GITHUB_APP_ID``, ``GITHUB_APP_PEM``, ``GITHUB_CLIENT_ID``, ``GITHUB_CLIENT_SECRET``, ``DB_URL``

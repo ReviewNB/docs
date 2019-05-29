@@ -10,7 +10,7 @@ FAQ
   * Yes. Our self hosted installation works with GitHub Enterprise & GitHub.com both.
 
 **Does ReviewNB work with GitLab or BitBucket?**
-  * Not yet. Additional platform support is one of our most requested feature. Feel free to upvote/follow updates.
+  * Not yet. Additional platform support is one of our most requested feature. Feel free to |upvote/follow updates|.
 
 **Which repositories can ReviewNB access?**
   * We can only access repositories for which you have enabled ReviewNB on GitHub
@@ -31,4 +31,4 @@ FAQ
   * Every time you logout and login, we generate a new GitHub access token. That way, your tokens are automatically rotated and the old one becomes defunct
 
 **Still, how can we trust ReviewNB?**
-  * Our app has been verified by GitHub team & approved for sell on GitHub marketplace. You can see Verified by GitHub badge on our marketplace listing.
+  * Our app has been |verified by GitHub| team & approved for sell on GitHub marketplace. You can see Verified by GitHub badge on our |marketplace listing|.
