@@ -14,7 +14,7 @@ Since we only store essential information the DB instance requirements are fairl
 
 Depending on your infrastructure, you can spin up your own database or use AWS RDS / GCP Cloud SQL instance. Make sure the database network allows ingress access from machines you're going to use for hosting ReviewNB application.
 
-Note down the database connection information in the followign format,
+Note down the database connection information in the followign format, we'll need to plug this as DB_URL environment variable on the docker container.
 
 .. code-block:: console
 

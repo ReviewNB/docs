@@ -87,7 +87,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosting ReviewNB (on-prem)</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
@@ -140,7 +140,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Self Hosting ReviewNB (on-prem)</a> &raquo;</li>
+          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
         
       <li>Create Database</li>
     
@@ -171,7 +171,7 @@ Since we only store essential information the DB instance requirements are fairl
 <li>Disk Space - 16GB minimum</li>
 </ul>
 <p>Depending on your infrastructure, you can spin up your own database or use AWS RDS / GCP Cloud SQL instance. Make sure the database network allows ingress access from machines you’re going to use for hosting ReviewNB application.</p>
-<p>Note down the database connection information in the followign format,</p>
+<p>Note down the database connection information in the followign format, we’ll need to plug this as DB_URL environment variable on the docker container.</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
 </pre></div>
 </div>

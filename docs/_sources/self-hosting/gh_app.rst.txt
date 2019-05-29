@@ -14,7 +14,7 @@ In this section, we'll create a GitHub app for your self hosted ReviewNB install
 * Private Key
 
 .. note::
-  Throughout this document when we say GitHub account, it can be an individual/org account on github.com or your own GitHub enterprise installation, depending on which GitHub offering you are using.
+  Throughout this document when we say GitHub account, it can be an individual/org account on github.com or your own GitHub enterprise installation, depending on the GitHub offering you are using.
 
 Create New App
 ---------------------
@@ -64,7 +64,7 @@ You need to enable these under permissions section as shown below,
 
 Webhook Events & Scope
 -------------------------
-Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion. For the questioon, *"Where can this GitHub App be installed?"* choose *"Only on this account"* if all  your notebook repositories are under this org where you are creating the app, else choose *"Any account"* so other GitHub orgs and accounts can install this ReviewNB app.
+Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion. For the questioon, *"Where can this GitHub App be installed?"* choose *"Only on this account"* if all  your notebook repositories are under this org where you are creating the app, else choose *"Any account"* so other GitHub orgs and accounts can also install this app.
 
 Click on *Create GitHub App*
 
@@ -84,7 +84,7 @@ Once the app is created you can scroll down to the bottom of the app page and cl
 
 Get App Config
 -----------------------------
-At the top of your newly created app you can find App ID, Client ID and Client Secret. Please note down these fields along with the private key generated in the above step.
+At the top of your newly created app you can find App ID, Client ID and Client Secret. Please note down these fields along with the private key generated in the above step. We'll need to plug them as environment vaiables on the docker container.
 
 .. image:: ../images/gh_app_6.png
    :scale: 80 %

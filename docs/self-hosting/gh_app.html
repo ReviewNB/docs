@@ -87,7 +87,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosting ReviewNB (on-prem)</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Create GitHub App</a><ul>
@@ -148,7 +148,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="index.html">Self Hosting ReviewNB (on-prem)</a> &raquo;</li>
+          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
         
       <li>Create GitHub App</li>
     
@@ -181,7 +181,7 @@
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Throughout this document when we say GitHub account, it can be an individual/org account on github.com or your own GitHub enterprise installation, depending on which GitHub offering you are using.</p>
+<p class="last">Throughout this document when we say GitHub account, it can be an individual/org account on github.com or your own GitHub enterprise installation, depending on the GitHub offering you are using.</p>
 </div>
 <div class="section" id="create-new-app">
 <h2>Create New App<a class="headerlink" href="#create-new-app" title="Permalink to this headline">¶</a></h2>
@@ -211,7 +211,7 @@ Login to the org account and go to <em>Settings -&gt; GitHub Apps -&gt; New GitH
 </div>
 <div class="section" id="webhook-events-scope">
 <h2>Webhook Events &amp; Scope<a class="headerlink" href="#webhook-events-scope" title="Permalink to this headline">¶</a></h2>
-<p>Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion. For the questioon, <em>“Where can this GitHub App be installed?”</em> choose <em>“Only on this account”</em> if all  your notebook repositories are under this org where you are creating the app, else choose <em>“Any account”</em> so other GitHub orgs and accounts can install this ReviewNB app.</p>
+<p>Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion. For the questioon, <em>“Where can this GitHub App be installed?”</em> choose <em>“Only on this account”</em> if all  your notebook repositories are under this org where you are creating the app, else choose <em>“Any account”</em> so other GitHub orgs and accounts can also install this app.</p>
 <p>Click on <em>Create GitHub App</em></p>
 <a class="reference internal image-reference" href="../_images/gh_app_4.png"><img alt="../_images/gh_app_4.png" class="align-center" src="../_images/gh_app_4.png" style="width: 604.8000000000001px; height: 544.8000000000001px;" /></a>
 </div>
@@ -222,7 +222,7 @@ Login to the org account and go to <em>Settings -&gt; GitHub Apps -&gt; New GitH
 </div>
 <div class="section" id="get-app-config">
 <span id="id2"></span><h2>Get App Config<a class="headerlink" href="#get-app-config" title="Permalink to this headline">¶</a></h2>
-<p>At the top of your newly created app you can find App ID, Client ID and Client Secret. Please note down these fields along with the private key generated in the above step.</p>
+<p>At the top of your newly created app you can find App ID, Client ID and Client Secret. Please note down these fields along with the private key generated in the above step. We’ll need to plug them as environment vaiables on the docker container.</p>
 <a class="reference internal image-reference" href="../_images/gh_app_6.png"><img alt="../_images/gh_app_6.png" class="align-center" src="../_images/gh_app_6.png" style="width: 570.4px; height: 289.6px;" /></a>
 </div>
 </div>
