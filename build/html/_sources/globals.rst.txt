@@ -1,6 +1,6 @@
 .. |ReviewNB| raw:: html
 
-  <a href="http://reviewnb.com" target="_blank">ReviewNB</a>
+  <a href="https://reviewnb.com" target="_blank">ReviewNB</a>
 
 .. |treon| raw:: html
 
@@ -37,3 +37,23 @@
 .. |fill the form| raw:: html
 
   <a href="https://docs.google.com/forms/d/1zb0riYOlSl-BMs1a1Q_wUEjE8-lZqqwRaA8V-6cpkKs" target="_blank">fill the form</a>
+
+.. |marketplace listing| raw:: html
+
+  <a href="https://github.com/marketplace/review-notebook-app" target="_blank">marketplace listing</a>
+
+.. |install from GitHub matketplace| raw:: html
+
+  <a href="https://github.com/marketplace/review-notebook-app" target="_blank">install from GitHub matketplace</a>
+
+.. |our website| raw:: html
+
+  <a href="https://reviewnb.com" target="_blank">our website</a>
+
+.. |verified by GitHub| raw:: html
+
+  <a href="https://developer.github.com/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/#security" target="_blank">verified by GitHub</a>
+
+.. |br| raw:: html
+
+  <br/>
