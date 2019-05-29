@@ -82,7 +82,8 @@
               
             
             
-              <ul class="current">
+              <p class="caption"><span class="caption-text">Table of Contents:</span></p>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hosted/index.html">Hosted ReviewNB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="self-hosting/index.html">Self Hosting ReviewNB (on-prem)</a></li>
@@ -154,7 +155,54 @@
             
   <div class="section" id="faq">
 <h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
-<p>FAQ goes here.</p>
+<dl class="docutils">
+<dt><strong>Can we self host ReviewNB?</strong></dt>
+<dd><ul class="first last simple">
+<li>Yes. If you’re interested in on-prem installation, please <a href="https://docs.google.com/forms/d/1zb0riYOlSl-BMs1a1Q_wUEjE8-lZqqwRaA8V-6cpkKs" target="_blank">fill the form</a> and we’ll get in touch.</li>
+</ul>
+</dd>
+<dt><strong>Does ReviewNB work with GitHub Enterprise?</strong></dt>
+<dd><ul class="first last simple">
+<li>Yes. Our self hosted installation works with GitHub Enterprise &amp; GitHub.com both.</li>
+</ul>
+</dd>
+<dt><strong>Does ReviewNB work with GitLab or BitBucket?</strong></dt>
+<dd><ul class="first last simple">
+<li>Not yet. Additional platform support is one of our most requested feature. Feel free to upvote/follow updates.</li>
+</ul>
+</dd>
+<dt><strong>Which repositories can ReviewNB access?</strong></dt>
+<dd><ul class="first last simple">
+<li>We can only access repositories for which you have enabled ReviewNB on GitHub</li>
+<li>You can enable/disable individual repository access at any time from GitHub</li>
+</ul>
+</dd>
+<dt><strong>What GitHub permissions do you need?</strong></dt>
+<dd><ul class="first last simple">
+<li>Read repository contents to fetch notebooks and compute diff</li>
+<li>Read repository metadata to fetch list of commits and PRs</li>
+<li>Read-Write access to pull requests to read &amp; write PR comments</li>
+</ul>
+</dd>
+<dt><strong>How can we trust ReviewNB with our private repositories?</strong></dt>
+<dd><ul class="first last simple">
+<li>ReviewNB does NOT store any repository contents. Notebooks / Diffs / Comments / Commits / PRs, none of these are stored in ReviewNB</li>
+<li>Anytime you open a diff, we make API calls to GitHub to fetch the data. We process the diff and serve it to your browser in real time</li>
+<li>Any comments you write are also directly posted to GitHub &amp; not stored in ReviewNB</li>
+</ul>
+</dd>
+<dt><strong>What about GitHub access token security?</strong></dt>
+<dd><ul class="first last simple">
+<li>GitHub access tokens are stored with AES (Advanced Encryption Standard) encryption</li>
+<li>Every time you logout and login, we generate a new GitHub access token. That way, your tokens are automatically rotated and the old one becomes defunct</li>
+</ul>
+</dd>
+<dt><strong>Still, how can we trust ReviewNB?</strong></dt>
+<dd><ul class="first last simple">
+<li>Our app has been verified by GitHub team &amp; approved for sell on GitHub marketplace. You can see Verified by GitHub badge on our marketplace listing.</li>
+</ul>
+</dd>
+</dl>
 </div>
 
 
