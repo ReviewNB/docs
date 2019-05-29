@@ -3,7 +3,7 @@
 Features
 ===============
 
-* **Install ReviewNB on repositories of your choice.**
+* **Install ReviewNB on repositories of your choice**
 
 .. image:: ./images/f6.png
    :scale: 60 %
@@ -11,7 +11,7 @@ Features
 
 |br|
 
-* **You can see visual diff for notebook changes.**
+* **See visual diff for notebook changes**
 
 .. image:: ./images/f1.png
    :scale: 45 %
@@ -20,7 +20,7 @@ Features
 |br|
 
 
-* **Visual diff is available for all commits and pull requests on your GitHub repositories.**
+* **Easily browse commits and pull requests on your GitHub repositories to see notebook diffs**
 
 .. image:: ./images/f2.png
    :scale: 60 %
@@ -29,7 +29,7 @@ Features
 |br|
 
 
-* **You can write comments on Pull Request diffs to ask clarifying questions, suggest changes etc. All comments are posted to GitHub.**
+* **Write comments on Pull Request diffs to ask clarifying questions, suggest changes etc.**
 
 .. image:: ./images/f3.png
    :scale: 45 %
@@ -38,7 +38,7 @@ Features
 |br|
 
 
-* **Conversation threads to track all open discussions before a PR can be merged.**
+* **Conversation threads to track all open discussions**
 
 .. image:: ./images/f4.png
    :scale: 45 %

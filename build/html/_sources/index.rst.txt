@@ -4,7 +4,7 @@ Welcome to ReviewNB's documentation!
 ====================================
 Having trouble using Jupyter Notebooks effectively in your team? **Join 200+ organizations like Amazon, Microsoft, Tensorflow, fast.ai** in using |ReviewNB| for notebook code reviews.
 
-Version control & code reviews are difficult with Jupyter Notebook's JSON format. ReviewNB provides a complete code review workflow for notebooks,
+Version control & code reviews are difficult with Jupyter Notebook's JSON format. ReviewNB provides a complete code review workflow for notebooks including,
 
   * |Visual diff| for every GitHub commit or Pull Request containing Notebooks
   * |Commenting| on the notebook diff to start discussion
