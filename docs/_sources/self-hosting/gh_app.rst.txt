@@ -91,6 +91,14 @@ Once the app is created you can scroll down and click *Generate private key*. Th
    :scale: 80 %
    :align: center
 
+Upload Logo
+-----------------------------
+:download:`Download <../images/logo.png>` the logo file and upload the logo to our app.
+
+.. image:: ../images/upload_logo.png
+   :scale: 80 %
+   :align: center
+
 .. _get_app_config:
 
 Get App Config
