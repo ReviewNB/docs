@@ -6,7 +6,7 @@ if ! git diff-index --quiet HEAD --; then
   exit 1
 fi
 
-cp -r build/html/* docs/
+cp -r source/_build/html/* docs/
 git add --all
 git commit -m "Trigger github pages deployment"
 git push
