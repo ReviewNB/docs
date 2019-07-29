@@ -26,6 +26,10 @@
 
   <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>
 
+.. |Quay| raw:: html
+
+  <a href="https://quay.io/" target="_blank">Quay</a>
+
 .. |official installation docs| raw:: html
 
   <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a>

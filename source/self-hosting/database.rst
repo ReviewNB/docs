@@ -6,15 +6,23 @@ Create Database
 ========================
 
 ReviewNB requires a PostgreSQL database to store user identity and other essential data. You can refer to the |official docs| for installation.
-Since we only store essential information the DB instance requirements are fairly low. Here's the minimum specification we need,
+Since we only store essential information, the DB instance requirements are fairly low. Here's the minimum spec we need,
 
 * PostgreSQL Version - 9.5 and above
 * Memory - 1GB minimum
 * Disk Space - 16GB minimum
 
-Depending on your infrastructure, you can spin up your own database or use AWS RDS / GCP Cloud SQL instance. Make sure the database network allows ingress access from machines you're going to use for hosting ReviewNB application.
+Depending on your infrastructure, you can spin up your own database or use *AWS RDS* / *GCP Cloud SQL* instance. Make sure the database is network accessible from machines on which you're going to host ReviewNB application.
 
-Note down the database connection information in the followign format, we'll need to plug this as DB_URL environment variable on the docker container.
+Once your DB instance is running, connect to it via *psql* and create a new database.
+
+  .. code-block:: console
+
+    $ psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
+
+    postgres=> CREATE DATABASE rnb;
+
+Note down the database connection string in the followign format. We'll need to plug this value as *DB_URL* environment variable on ReviewNB container.
 
 .. code-block:: console
 
