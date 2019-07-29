@@ -93,8 +93,8 @@
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
 </ul>
 
             
@@ -163,15 +163,23 @@
             
   <div class="section" id="create-database">
 <span id="id1"></span><h1>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h1>
-<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. You can refer to the <a href="https://www.postgresql.org/" target="_blank">official docs</a> for installation.
-Since we only store essential information the DB instance requirements are fairly low. Here’s the minimum specification we need,</p>
+<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. You can refer to the <a href="https://www.postgresql.org/" target="_blank">official postgres docs</a> for installation.
+Since we only store essential information, the DB instance requirements are fairly low. Here’s the minimum spec we need,</p>
 <ul class="simple">
 <li>PostgreSQL Version - 9.5 and above</li>
 <li>Memory - 1GB minimum</li>
 <li>Disk Space - 16GB minimum</li>
 </ul>
-<p>Depending on your infrastructure, you can spin up your own database or use AWS RDS / GCP Cloud SQL instance. Make sure the database network allows ingress access from machines you’re going to use for hosting ReviewNB application.</p>
-<p>Note down the database connection information in the followign format, we’ll need to plug this as DB_URL environment variable on the docker container.</p>
+<p>Depending on your infrastructure, you can spin up your own database or use <em>AWS RDS</em> / <em>GCP Cloud SQL</em> instance. Make sure the database is network accessible from machines on which you’re going to host ReviewNB application.</p>
+<p>Once your DB instance is running, connect to it via <em>psql</em> and create a new database.</p>
+<blockquote>
+<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
+
+<span class="go">postgres=&gt; CREATE DATABASE rnb;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>Note down the database connection string in the followign format. DB_NAME is the name of our newly created database. We’ll need to supply the following string as <em>DB_URL</em> environment variable on ReviewNB container.</p>
 <div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
 </pre></div>
 </div>

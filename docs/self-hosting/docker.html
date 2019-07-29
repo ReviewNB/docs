@@ -89,16 +89,22 @@
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#hardware">Hardware</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#prerequisite">Prerequisite</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#run-the-image">Run the image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-installation">Verify Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#https-support">HTTPS Support</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
 </ul>
 
             
@@ -167,16 +173,21 @@
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>ReviewNB application is distributed as a docker image via <a href="https://hub.docker.com/" target="_blank">Docker Hub</a>. Once your on-prem request is approved, we create a private dockerhub repository for your use &amp; grant you access to it.</p>
-<p>You can use deployment tool of your choice to run the docker image. Below we show a simple way to run the docker image from command line.</p>
+<p>ReviewNB application is distributed as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>. Once your on-prem request is approved, we create a private docker image for your use &amp; grant you access to it.</p>
+<p>You can use deployment tool of your choice to run the docker image. Below, we show a simple way to run the docker image from command line.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Running docker from the command line as shown below is good for trial or short runs. For production deployments we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.</p>
+<p class="last">Running docker from the command line as shown below is good for limited usage. For production deployments we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.</p>
+</div>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 4GB of memory. Go higher on memory if your notebooks tend to be larger. Couple of machines with 4 to 8 GB memory should be sufficient for moderate workloads.</p>
 </div>
 <div class="section" id="prerequisite">
 <h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Docker installation is required, see the <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a></li>
+<li>Docker should be installed, see the <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a></li>
+<li>Credentials to pull your private docker image from Quay. You should’ve received it in registration email. If not, write to us at <cite>support&#64;reviewnb.com</cite></li>
 <li><a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a></li>
 <li><a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a></li>
 </ul>
@@ -184,30 +195,91 @@
 <div class="section" id="run-the-image">
 <h2>Run the image<a class="headerlink" href="#run-the-image" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li><p class="first">Login (via docker CLI) to the private dockerhub repository account that we’ll have granted you access to.</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker login
-<span class="go">Username (reviewnb): xyz-inc-admin</span>
-<span class="go">Password: xxxxxxxx</span>
+<li><p class="first">Login (via docker CLI) to the Quay docker registry with the credentials we sent you via email.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker login -u<span class="o">=</span><span class="s2">&quot;&lt;username&gt;&quot;</span> -p<span class="o">=</span><span class="s2">&quot;&lt;password&gt;&quot;</span> quay.io
 </pre></div>
 </div>
 </li>
-<li><p class="first">Run the docker image we created for you,</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> sudo docker run --detach <span class="se">\</span>
-    --publish <span class="m">443</span>:443 --publish <span class="m">80</span>:80 <span class="se">\</span>
-    --restart always <span class="se">\</span>
-    --env <span class="nv">GITHUB_APP_ID</span><span class="o">=</span>&lt;your_gh_app_id&gt;
-<span class="go">    --env GITHUB_APP_PEM=&lt;your_gh_app_private_key&gt;</span>
-<span class="go">    --env GITHUB_CLIENT_ID=&lt;your_gh_app_client_id&gt;</span>
-<span class="go">    --env GITHUB_CLIENT_SECRET=&lt;your_gh_app_client_secret&gt;</span>
-<span class="go">    --env DB_URL=&lt;your-postgres-connection-string&gt;</span>
-<span class="go">    reviewnb/xyz-inc:latest</span>
+<li><p class="first">Pull the docker image. Image name &amp; tag would also be available in the registration email we sent you.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker pull quay.io/reviewnb/&lt;your-company-name&gt;:&lt;reviewnb-version&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run the docker image. Substitue all <cite>-</cite>-env variables with your own values as explained in the table below this command.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker run --detach <span class="se">\</span>
+--publish <span class="m">443</span>:8000 --publish <span class="m">80</span>:8000 <span class="se">\</span>
+--restart always <span class="se">\</span>
+--env <span class="nv">GITHUB_APP_ID</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="se">\</span>
+--env <span class="nv">GITHUB_CLIENT_ID</span><span class="o">=</span><span class="s2">&quot;Iv1.5a6123881f61e84c&quot;</span> <span class="se">\</span>
+--env <span class="nv">GITHUB_CLIENT_SECRET</span><span class="o">=</span><span class="s2">&quot;2c40dbe73d8rdg3b7c37fbbab5d376b174b53deb&quot;</span> <span class="se">\</span>
+--env <span class="nv">GITHUB_BASE_URL</span><span class="o">=</span><span class="s2">&quot;https://github.corp.your-company-domain.com&quot;</span> <span class="se">\</span>
+--env <span class="nv">GITHUB_APP_URL</span><span class="o">=</span><span class="s2">&quot;https://ghes.nurtch.com/github-apps/reviewnb-for-nurtch&quot;</span> <span class="se">\</span>
+--env <span class="nv">REVIEWNB_BASE_URL</span><span class="o">=</span><span class="s2">&quot;https://reviewnb.nurtch.com&quot;</span> <span class="se">\</span>
+--env <span class="nv">DB_URL</span><span class="o">=</span><span class="s2">&quot;postgres://username:pwd@host:5432/database&quot;</span> <span class="se">\</span>
+--env <span class="nv">GITHUB_APP_PEM</span><span class="o">=</span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMI&lt;really-long-pem-key&gt;Z9huMC\n-----END RSA PRIVATE KEY-----\n&quot;</span> <span class="se">\</span>
+quay.io/reviewnb/nurtch:v0.1.9
 </pre></div>
 </div>
 </li>
 </ul>
-<p>This will download the image, start a container and publish ports needed to access the application over HTTP and HTTPS. The container will automatically restart after a system reboot.</p>
-<p>You can get app environment variables used in the above command from <a class="reference internal" href="gh_app.html#get-app-config"><span class="std std-ref">Get App Config</span></a> &amp; DB_URL from <a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a>.
-If you are using other deployment tools for running containers, please use that tools standard method to specify following environment variables: <code class="docutils literal"><span class="pre">GITHUB_APP_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_APP_PEM</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_ID</span></code>, <code class="docutils literal"><span class="pre">GITHUB_CLIENT_SECRET</span></code>, <code class="docutils literal"><span class="pre">DB_URL</span></code></p>
+<p>This will download the image, start a container and publish ports needed to access the application. The container will automatically restart after a system reboot.</p>
+<p>Source for environment variables,</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="26%" />
+<col width="74%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><cite>-</cite>-env variables</th>
+<th class="head">Source</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">GITHUB_BASE_URL</span></code></td>
+<td>Endpoint at which your company’s GitHub enterprise instance is running</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal"><span class="pre">REVIEWNB_BASE_URL</span></code></td>
+<td>Endpoint at which your self hosted ReviewNB will be running</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal"><span class="pre">DB_URL</span></code></td>
+<td><a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a></td>
+</tr>
+<tr class="row-odd"><td><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">GITHUB_APP_ID</span></code></li>
+<li><code class="docutils literal"><span class="pre">GITHUB_APP_URL</span></code></li>
+<li><code class="docutils literal"><span class="pre">GITHUB_CLIENT_ID</span></code></li>
+<li><code class="docutils literal"><span class="pre">GITHUB_APP_PEM</span></code></li>
+<li><code class="docutils literal"><span class="pre">GITHUB_CLIENT_SECRET</span></code></li>
+</ul>
+</td>
+<td><a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="verify-installation">
+<h2>Verify Installation<a class="headerlink" href="#verify-installation" title="Permalink to this headline">¶</a></h2>
+<p>Visit the endpoint where container is running (endpoint could even be an ip address for the sake of verification). You should see the login page without any errors on it.
+Do not login just yet, you can login after adding HTTPS suppport (last step below).</p>
+<img alt="../_images/login_page_2.png" class="align-center" src="../_images/login_page_2.png" />
+<div class="section" id="troubleshooting">
+<h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>If login page doesn’t show up or the page indicates any preflight errors, most likely you haven’t set all the environment variables properly.</li>
+<li>If all environment variables are set correctly and you’re still seeing errors, look at container logs (<code class="docutils literal"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">&lt;container-id&gt;</span></code>) to see if logs are complaining about something.</li>
+<li>If still not resolved, reach out to <cite>support&#64;reviewnb.com</cite></li>
+</ul>
+</div>
+</div>
+<div class="section" id="https-support">
+<h2>HTTPS Support<a class="headerlink" href="#https-support" title="Permalink to this headline">¶</a></h2>
+<p>At this point, the application is simply running on port 80 and 443 on an instance. You should,</p>
+<ul class="simple">
+<li>Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2</li>
+<li>Add a CNAME entry that points <code class="docutils literal"><span class="pre">REVIEWNB_BASE_URL</span></code> to your load balancer.</li>
+</ul>
+<p>Once the HTTPS support is added, you can set an additional environment variable <code class="docutils literal"><span class="pre">SSL_REDIRECT=1</span></code> to redirect all HTTP traffic to be served via secure HTTPS protocol.</p>
+<p>That’s all! Now you should be able to login and use ReviewNB with your GitHub installation.</p>
 </div>
 </div>
 
