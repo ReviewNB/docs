@@ -4,9 +4,9 @@
 
 Create GitHub App
 =================
-GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via Oauth2 & lets user select repositories that ReviewNB should have access to.
+GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via Oauth2 & let user select repositories that ReviewNB should have access to.
 
-In this section, we'll create a GitHub app for your self hosted ReviewNB installation. At the end, we require following fields to use inside our ReviewNB installation.
+In this section, we'll create a GitHub app for your self hosted ReviewNB installation. At the end, we require following fields to:
 
 * App ID
 * App URL
@@ -19,13 +19,13 @@ In this section, we'll create a GitHub app for your self hosted ReviewNB install
 
 Prerequisite
 --------------------------
-* You need to know the endpoint at which you'll be running ReviewNB. It's typically *reviewnb.<your-domain-name>.com*. Your application won't be running there as yet but you just need to know the endpoint you'll be using.
+* You need to decide the endpoint at which you'll be running ReviewNB. It's typically *reviewnb.<your-domain-name>.com*. Your application won't be running there as yet but you just need to know the endpoint you'll be using.
 
 Create New App
 ---------------------
 Any GitHub account can own the app but we recommend creating it under org account of the team who is going to maintain the ReviewNB installation.
 
-* Login to GitHub & go to your org account page (e.g. https://github.corp.company.com/tools-org).
+* Login to GitHub & go to your org account page (e.g. `https://github.corp.company.com/tools-org`).
 * Click on *Settings -> GitHub Apps -> New GitHub App* as shown below.
 
 .. image:: ../images/gh_app_1.png
@@ -85,7 +85,7 @@ Click on *Create GitHub App*
 
 Generate Private Key
 -----------------------------
-Once the app is created you can scroll down and click *Generate a private key*. This will create and download a .pem file for you. Please keep this safe.
+Once the app is created you can scroll down and click *Generate private key*. This will create and download a .pem file for you. Please keep this safe.
 
 .. image:: ../images/gh_app_5_v2.png
    :scale: 80 %
@@ -101,7 +101,7 @@ On your newly created app page, you can find Client ID, Client Secret, App ID, a
    :scale: 80 %
    :align: center
 
-Public link is our App URL and ID is App ID.
+*Public link* is the App URL and *ID* is App ID.
 
 .. image:: ../images/gh_app_6.2.png
    :scale: 80 %
@@ -110,14 +110,13 @@ Public link is our App URL and ID is App ID.
 How to read Private Key
 -----------------------------
 The private key you generated above would be downloaded as a .pem file. You need to open the .pem in any text editor and replace the newlines with *\\n*. I demonstrate this with Sublime Text below.
-
 Notice the regex replacement I'm using at the bottom. If your editor doesn't support it, you can manually replace newlines with *\\n*.
 
 .. image:: ../images/before_replacement.png
    :scale: 80 %
    :align: center
 
-It should become a single line (like below) after replacement. If you're replacing by hand, notice there's a *\\n* at the end of last line as well. This will be your Private Key (*GITHUB_APP_PEM*).
+After replacement, it should become a single line (as shown below) with *\\n* between each of the previous line. If you're replacing by hand, notice there's a *\\n* at the end of last line as well. This entire single line will be your Private Key (*GITHUB_APP_PEM*).
 
 .. image:: ../images/after_replacement.png
    :scale: 80 %

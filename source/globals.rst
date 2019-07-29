@@ -34,9 +34,9 @@
 
   <a href="https://docs.docker.com/install/" target="_blank">official installation docs</a>
 
-.. |official docs| raw:: html
+.. |official postgres docs| raw:: html
 
-  <a href="https://www.postgresql.org/" target="_blank">official docs</a>
+  <a href="https://www.postgresql.org/" target="_blank">official postgres docs</a>
 
 .. |fill the form| raw:: html
 

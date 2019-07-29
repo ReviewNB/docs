@@ -5,7 +5,7 @@
 Create Database
 ========================
 
-ReviewNB requires a PostgreSQL database to store user identity and other essential data. You can refer to the |official docs| for installation.
+ReviewNB requires a PostgreSQL database to store user identity and other essential data. You can refer to the |official postgres docs| for installation.
 Since we only store essential information, the DB instance requirements are fairly low. Here's the minimum spec we need,
 
 * PostgreSQL Version - 9.5 and above
@@ -22,7 +22,7 @@ Once your DB instance is running, connect to it via *psql* and create a new data
 
     postgres=> CREATE DATABASE rnb;
 
-Note down the database connection string in the followign format. We'll need to plug this value as *DB_URL* environment variable on ReviewNB container.
+Note down the database connection string in the followign format. DB_NAME is the name of our newly created database. We'll need to supply the following string as *DB_URL* environment variable on ReviewNB container.
 
 .. code-block:: console
 

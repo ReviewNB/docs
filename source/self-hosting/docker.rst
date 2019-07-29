@@ -3,27 +3,27 @@
 Installation
 =====================
 
-ReviewNB application is distributed as a docker image via |Quay|. Once your on-prem request is approved, we create a private dockerhub repository for your use & grant you access to it.
+ReviewNB application is distributed as a docker image via |Quay|. Once your on-prem request is approved, we create a private docker image for your use & grant you access to it.
 
-You can use deployment tool of your choice to run the docker image. Below we show a simple way to run the docker image from command line.
+You can use deployment tool of your choice to run the docker image. Below, we show a simple way to run the docker image from command line.
 
 .. note::
-  Running docker from the command line as shown below is good for trial or short runs. For production deployments we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.
+  Running docker from the command line as shown below is good for limited usage. For production deployments we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.
 
-Hardware Consideration
+Hardware
 --------------------------
-ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 4GB of memory. Go higher on memory if your notebooks tend to be larger. Couple of machines with 4 to 8 GB memory should be sufficient for most workloads.
+ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 4GB of memory. Go higher on memory if your notebooks tend to be larger. Couple of machines with 4 to 8 GB memory should be sufficient for moderate workloads.
 
 Prerequisite
 --------------------------
-* Docker installation is required, see the |official installation docs|
-* Credentials to pull docker images from Quay. If you haven't received it, write to us at `support@reviewnb.com`
+* Docker should be installed, see the |official installation docs|
+* Credentials to pull your private docker image from Quay. You should've received it in registration email. If not, write to us at `support@reviewnb.com`
 * :ref:`create_github_app`
 * :ref:`create_database`
 
 Run the image
 --------------------------
-* Login (via docker CLI) to the Quay docker registry using the credentials we sent you via email.
+* Login (via docker CLI) to the Quay docker registry with the credentials we sent you via email.
 
   .. code-block:: console
 
@@ -35,7 +35,7 @@ Run the image
 
     $ docker pull quay.io/reviewnb/<your-company-name>:<reviewnb-version>
 
-* Run the docker image. Substitue all `-`-env variables with your own values as explained in the table below.
+* Run the docker image. Substitue all `-`-env variables with your own values as explained in the table below this command.
 
   .. code-block:: console
 
@@ -75,7 +75,7 @@ Source for environment variables,
 
 Verify Installation
 --------------------------
-Visit the endpoint where container is running (endpoint could even be an ip address for this verification). You should see the login page without any errors on it.
+Visit the endpoint where container is running (endpoint could even be an ip address for the sake of verification). You should see the login page without any errors on it.
 Do not login just yet, you can login after adding HTTPS suppport (last step below).
 
 .. image:: ../images/login_page_2.png
@@ -83,9 +83,9 @@ Do not login just yet, you can login after adding HTTPS suppport (last step belo
 
 Troubleshooting
 *********************
-- If login page doesn't show up or the page indicates any preflight errors then most likely you haven't set all the environment variables properly.
-- If all environment variables are set correctly and you're still seeing error, then look at container logs (``docker logs <container-id>``) to see if it's complaining about something.
-- If still not resolved reach out to `support@reviewnb.com`
+- If login page doesn't show up or the page indicates any preflight errors, most likely you haven't set all the environment variables properly.
+- If all environment variables are set correctly and you're still seeing errors, look at container logs (``docker logs <container-id>``) to see if logs are complaining about something.
+- If still not resolved, reach out to `support@reviewnb.com`
 
 
 HTTPS Support
@@ -96,3 +96,5 @@ At this point, the application is simply running on port 80 and 443 on an instan
 - Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer.
 
 Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
+
+That's all! Now you should be able to login and use ReviewNB with your GitHub installation.
