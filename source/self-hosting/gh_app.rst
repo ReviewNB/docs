@@ -75,7 +75,7 @@ You need to enable these under permissions section as shown below,
 Webhook Events & Scope
 -------------------------
 * Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion.
-* For the question, *"Where can this GitHub App be installed?"* choose *"Any account"* so other orgs in your company can use ReviewNB as well.
+* For the question, *"Where can this GitHub App be installed?"* choose *"Any account"* so other orgs in your company can use ReviewNB as well. For on-prem installations that work with github.com, only repositories under your company's org account can be accessed via ReviewNB.
 
 Click on *Create GitHub App*
 

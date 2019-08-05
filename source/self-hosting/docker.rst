@@ -59,7 +59,9 @@ Source for environment variables,
 +----------------------------+--------------------------------------------------------------------------------+
 | `-`-env variables          | Source                                                                         |
 +============================+================================================================================+
-| ``GITHUB_BASE_URL``        | Endpoint at which your company's GitHub enterprise instance is running         |
+| ``GITHUB_BASE_URL``        | | Endpoint at which your company's GitHub enterprise instance is running       |
+|                            | |                                                                              |
+|                            | | If you are using ReviewNB with github.com then use ``https://github.com``    |
 +----------------------------+--------------------------------------------------------------------------------+
 | ``REVIEWNB_BASE_URL``      | Endpoint at which your self hosted ReviewNB will be running                    |
 +----------------------------+--------------------------------------------------------------------------------+
