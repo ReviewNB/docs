@@ -163,14 +163,17 @@
             
   <div class="section" id="create-database">
 <span id="id1"></span><h1>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h1>
-<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. You can refer to the <a href="https://www.postgresql.org/" target="_blank">official postgres docs</a> for installation.
+<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data.
 Since we only store essential information, the DB instance requirements are fairly low. Here’s the minimum spec we need,</p>
 <ul class="simple">
 <li>PostgreSQL Version - 9.5 and above</li>
 <li>Memory - 1GB minimum</li>
 <li>Disk Space - 16GB minimum</li>
 </ul>
-<p>Depending on your infrastructure, you can spin up your own database or use <em>AWS RDS</em> / <em>GCP Cloud SQL</em> instance. Make sure the database is network accessible from machines on which you’re going to host ReviewNB application.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We highly recommend using managed database (e.g. <em>AWS RDS</em> / <em>GCP Cloud SQL</em>) as the service takes care of availability and backups. Make sure the database is network accessible from machines on which you’re going to host ReviewNB application.</p>
+</div>
 <p>Once your DB instance is running, connect to it via <em>psql</em> and create a new database.</p>
 <blockquote>
 <div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
