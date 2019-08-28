@@ -96,11 +96,14 @@
 <li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#https-support">HTTPS Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#domain-name-https-support">Domain Name &amp; HTTPS Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-bot-comments">Verify Bot Comments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#optional-tips">Optional Tips</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -177,11 +180,11 @@
 <p>You can use deployment tool of your choice to run the docker image. Below, we show a simple way to run the docker image from command line.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Running docker from the command line as shown below is good for limited usage. For production deployments we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.</p>
+<p class="last">Running docker image from the command line on a single instance works well for small to moderate installations. For larger deployments (&gt;250 concurrent users) we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.</p>
 </div>
 <div class="section" id="hardware">
 <h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
-<p>ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 4GB of memory. Go higher on memory if your notebooks tend to be larger. Couple of machines with 4 to 8 GB memory should be sufficient for moderate workloads.</p>
+<p>ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 8GB of memory. Go higher on memory if your notebooks tend to be larger or you are expecting lot of concurrent users.</p>
 </div>
 <div class="section" id="prerequisite">
 <h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
@@ -217,7 +220,7 @@
 --env <span class="nv">REVIEWNB_BASE_URL</span><span class="o">=</span><span class="s2">&quot;https://reviewnb.nurtch.com&quot;</span> <span class="se">\</span>
 --env <span class="nv">DB_URL</span><span class="o">=</span><span class="s2">&quot;postgres://username:pwd@host:5432/database&quot;</span> <span class="se">\</span>
 --env <span class="nv">GITHUB_APP_PEM</span><span class="o">=</span><span class="s2">&quot;-----BEGIN RSA PRIVATE KEY-----\nMI&lt;really-long-pem-key&gt;Z9huMC\n-----END RSA PRIVATE KEY-----\n&quot;</span> <span class="se">\</span>
-quay.io/reviewnb/nurtch:v0.1.9
+quay.io/reviewnb/&lt;your-company-name&gt;:&lt;reviewnb-version&gt;
 </pre></div>
 </div>
 </li>
@@ -276,15 +279,29 @@ Do not login just yet, you can login after adding HTTPS suppport (last step belo
 </ul>
 </div>
 </div>
-<div class="section" id="https-support">
-<h2>HTTPS Support<a class="headerlink" href="#https-support" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="domain-name-https-support">
+<h2>Domain Name &amp; HTTPS Support<a class="headerlink" href="#domain-name-https-support" title="Permalink to this headline">¶</a></h2>
 <p>At this point, the application is simply running on port 80 and 443 on an instance. You should,</p>
 <ul class="simple">
 <li>Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2</li>
-<li>Add a CNAME entry that points <code class="docutils literal"><span class="pre">REVIEWNB_BASE_URL</span></code> to your load balancer.</li>
+<li>Add a CNAME entry that points <code class="docutils literal"><span class="pre">REVIEWNB_BASE_URL</span></code> to your load balancer. That way the application is accessible on easy to remeber emdpoint (e.g. <em>reviewnb.xyz-company.com</em>)</li>
 </ul>
 <p>Once the HTTPS support is added, you can set an additional environment variable <code class="docutils literal"><span class="pre">SSL_REDIRECT=1</span></code> to redirect all HTTP traffic to be served via secure HTTPS protocol.</p>
-<p>That’s all! Now you should be able to login and use ReviewNB with your GitHub installation.</p>
+</div>
+<div class="section" id="verify-bot-comments">
+<h2>Verify Bot Comments<a class="headerlink" href="#verify-bot-comments" title="Permalink to this headline">¶</a></h2>
+<p>You must perform this verification step to make sure all features are working as expected,</p>
+<ul class="simple">
+<li><a class="reference internal" href="bot_comments.html#bot-comments"><span class="std std-ref">Verify Bot Comments</span></a></li>
+</ul>
+<p>That’s all! You have succesfully installed and verified ReviewNB application &amp; it’s ready for use.</p>
+</div>
+<div class="section" id="optional-tips">
+<h2>Optional Tips<a class="headerlink" href="#optional-tips" title="Permalink to this headline">¶</a></h2>
+<p>Just some useful tips as you progress towards being a super user,</p>
+<ul class="simple">
+<li>All repository, commit, and PR URLs on ReviewNB intentionally have the same URL structure as that of GitHub. So you can use <a href="https://medium.com/@amitrathi/dynamic-bookmarks-for-reviewnb-52a7db356d4" target="_blank">dynamic bookmarks</a> to quickly jump back &amp; forth between ReviewNB &amp; GitHub.</li>
+</ul>
 </div>
 </div>
 

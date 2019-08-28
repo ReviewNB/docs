@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Self Hosted ReviewNB &mdash; ReviewNB 0.0.1 documentation</title>
+  <title>Verify Bot Comments &mdash; ReviewNB 0.0.1 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="docker.html" />
-    <link rel="prev" title="Hosted ReviewNB" href="../hosted/index.html" /> 
+    <link rel="next" title="FAQ" href="../faq.html" />
+    <link rel="prev" title="Create GitHub App" href="gh_app.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -87,11 +87,14 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Self Hosted ReviewNB</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Verify Bot Comments</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-verify">How to Verify</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -141,13 +144,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Self Hosted ReviewNB</li>
+          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
+        
+      <li>Verify Bot Comments</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/self-hosting/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/self-hosting/bot_comments.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -160,41 +165,28 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="self-hosted-reviewnb">
-<h1>Self Hosted ReviewNB<a class="headerlink" href="#self-hosted-reviewnb" title="Permalink to this headline">¶</a></h1>
-<p>We offer self hosted ReviewNB for companies interested in running it on their own. Self hosted ReviewNB works with GitHub.com or GitHub Enterprise Server.</p>
-<p>If you are inetersted in self hosting, <a href="https://docs.google.com/forms/d/1zb0riYOlSl-BMs1a1Q_wUEjE8-lZqqwRaA8V-6cpkKs" target="_blank">fill the form</a> and we’ll get in touch. Rest of this section goes over installation instructions for self hosting.</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Table of Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#hardware">Hardware</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#prerequisite">Prerequisite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#run-the-image">Run the image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#verify-installation">Verify Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#domain-name-https-support">Domain Name &amp; HTTPS Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#verify-bot-comments">Verify Bot Comments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#optional-tips">Optional Tips</a></li>
+  <div class="section" id="verify-bot-comments">
+<span id="bot-comments"></span><h1>Verify Bot Comments<a class="headerlink" href="#verify-bot-comments" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This verification happens at the very end after ReviewNB is installed and you can login succesfully.</p>
+</div>
+<p>Anytime a new Pull Request is opened (containing notebook changes), our bot posts a comment to access this Pull Request in ReviewNB. See screenshot below. It’s a very useful feature to quickly jump from GitHub to ReviewNB.</p>
+<img alt="../_images/bot_message.png" class="align-center" src="../_images/bot_message.png" />
+<p>This is achieved by listening to webhooks generated by GitHub &amp; shouldn’t require any additional setup. Let’s just go ahead and verify that this feature is working as expected.</p>
+<div class="section" id="how-to-verify">
+<h2>How to Verify<a class="headerlink" href="#how-to-verify" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Login to ReviewNB and allow access to some repositories from the UI.</li>
+<li>Create a new Pull Request on one of these repositories. Make sure the PR contains at least one notebook file change.</li>
+<li>Once the PR is created, you should almost instantly see bot comment on the Discussion tab in GitHub.</li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="database.html">Create Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gh_app.html">Create GitHub App</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#prerequisite">Prerequisite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#create-new-app">Create New App</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#setup-urls-and-genral-information">Setup URLs and Genral Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#setup-permissions">Setup Permissions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#webhook-events-scope">Webhook Events &amp; Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#generate-private-key">Generate Private Key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#upload-logo">Upload Logo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#get-app-config">Get App Config</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#how-to-read-private-key">How to read Private Key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#summary">Summary</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bot_comments.html#how-to-verify">How to Verify</a></li>
-</ul>
-</li>
+<p>If you are not seeing bot comments there’s likely something wrong with GitHub webhook delivery. You can take following troubleshooting steps,</p>
+<ul class="simple">
+<li>Head over to your newly created GitHub App -&gt; Advanced Tab. You can see webhook delivery failure reasons.</li>
+<li>If all webhook deliveries are failing with ‘Service Timeout’ or similar errors. Please make sure that your GitHub enterprise instance can make outbound calls to your on-prem ReviewNB.</li>
+<li>Look at container logs (<code class="docutils literal"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">&lt;container-id&gt;</span></code>) to see if logs are complaining about something.</li>
+<li>If still not resolved, write to us at <cite>support&#64;reviewnb.com</cite></li>
 </ul>
 </div>
 </div>
@@ -207,10 +199,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="docker.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../hosted/index.html" class="btn btn-neutral" title="Hosted ReviewNB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gh_app.html" class="btn btn-neutral" title="Create GitHub App" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

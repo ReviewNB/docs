@@ -8,11 +8,11 @@ ReviewNB application is distributed as a docker image via |Quay|. Once your on-p
 You can use deployment tool of your choice to run the docker image. Below, we show a simple way to run the docker image from command line.
 
 .. note::
-  Running docker from the command line as shown below is good for limited usage. For production deployments we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.
+  Running docker image from the command line on a single instance works well for small to moderate installations. For larger deployments (>250 concurrent users) we recommend running ReviewNB in a cluster with container scheduling platforms such as Kubernetes, Docker compose, AWS ECS etc.
 
 Hardware
 --------------------------
-ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 4GB of memory. Go higher on memory if your notebooks tend to be larger. Couple of machines with 4 to 8 GB memory should be sufficient for moderate workloads.
+ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 8GB of memory. Go higher on memory if your notebooks tend to be larger or you are expecting lot of concurrent users.
 
 Prerequisite
 --------------------------
@@ -50,7 +50,7 @@ Run the image
     --env REVIEWNB_BASE_URL="https://reviewnb.nurtch.com" \
     --env DB_URL="postgres://username:pwd@host:5432/database" \
     --env GITHUB_APP_PEM="-----BEGIN RSA PRIVATE KEY-----\nMI<really-long-pem-key>Z9huMC\n-----END RSA PRIVATE KEY-----\n" \
-    quay.io/reviewnb/nurtch:v0.1.9
+    quay.io/reviewnb/<your-company-name>:<reviewnb-version>
 
 This will download the image, start a container and publish ports needed to access the application. The container will automatically restart after a system reboot.
 
@@ -90,13 +90,27 @@ Troubleshooting
 - If still not resolved, reach out to `support@reviewnb.com`
 
 
-HTTPS Support
---------------------------
+Domain Name & HTTPS Support
+----------------------------
 At this point, the application is simply running on port 80 and 443 on an instance. You should,
 
 - Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
-- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer.
+- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remeber emdpoint (e.g. *reviewnb.xyz-company.com*)
 
 Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
 
-That's all! Now you should be able to login and use ReviewNB with your GitHub installation.
+Verify Bot Comments
+--------------------------
+You must perform this verification step to make sure all features are working as expected,
+
+- :ref:`bot_comments`
+
+
+That's all! You have succesfully installed and verified ReviewNB application & it's ready for use.
+
+
+Optional Tips
+--------------------------
+Just some useful tips as you progress towards being a super user,
+
+- All repository, commit, and PR URLs on ReviewNB intentionally have the same URL structure as that of GitHub. So you can use |dynamic bookmarks| to quickly jump back & forth between ReviewNB & GitHub.
