@@ -284,7 +284,7 @@ Do not login just yet, you can login after adding HTTPS suppport (last step belo
 <p>At this point, the application is simply running on port 80 and 443 on an instance. You should,</p>
 <ul class="simple">
 <li>Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2</li>
-<li>Add a CNAME entry that points <code class="docutils literal"><span class="pre">REVIEWNB_BASE_URL</span></code> to your load balancer. That way the application is accessible on easy to remeber emdpoint (e.g. <em>reviewnb.xyz-company.com</em>)</li>
+<li>Add a CNAME entry that points <code class="docutils literal"><span class="pre">REVIEWNB_BASE_URL</span></code> to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. <em>reviewnb.xyz-company.com</em>)</li>
 </ul>
 <p>Once the HTTPS support is added, you can set an additional environment variable <code class="docutils literal"><span class="pre">SSL_REDIRECT=1</span></code> to redirect all HTTP traffic to be served via secure HTTPS protocol.</p>
 </div>
