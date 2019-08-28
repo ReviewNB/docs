@@ -66,3 +66,7 @@
 
   <a href="https://github.com/reviewNB/support/issues?q=is%3Aissue+is%3Aopen+label%3A%22Platform+Support%22" target="_blank">upvote/follow updates</a>
 
+.. |dynamic bookmarks| raw:: html
+
+  <a href="https://medium.com/@amitrathi/dynamic-bookmarks-for-reviewnb-52a7db356d4" target="_blank">dynamic bookmarks</a>
+
