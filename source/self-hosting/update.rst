@@ -41,4 +41,4 @@ You will be stopping the old ReviewNB version in this step. Note that the servic
 
     $ docker kill <container_id>
 
-* :ref:`Run new container <run_docker_image>`. [Tip: Our `docker run` command requires that you specify all environment variables. You can simply find the old `docker run` command with shell command history (ctrl+r) on Linux. And simply change the image tag on that command.]
+* :ref:`Run new container <run_docker_image>`. [Tip: Our `docker run` command requires that you specify all environment variables. You can simply find the old `docker run` command with shell command history (ctrl+r) on Linux. Then you only need to replace the image tag on that command with a new one.]
