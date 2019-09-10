@@ -23,7 +23,7 @@ Prerequisite
 
 Run the image
 --------------------------
-* Login (via docker CLI) to the Quay docker registry with the credentials we sent you via email.
+* Login (via docker CLI) to Quay docker registry with the credentials we sent you via email.
 
   .. code-block:: console
 
