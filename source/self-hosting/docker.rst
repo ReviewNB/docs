@@ -35,6 +35,8 @@ Run the image
 
     $ docker pull quay.io/reviewnb/<your-company-name>:<reviewnb-version>
 
+.. _run_docker_image:
+
 * Run the docker image. Substitue all `-`-env variables with your own values as explained in the table below this command.
 
   .. code-block:: console
