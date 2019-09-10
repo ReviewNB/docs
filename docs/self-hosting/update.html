@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Self Hosted ReviewNB &mdash; ReviewNB 0.0.1 documentation</title>
+  <title>Update On-Prem ReviewNB &mdash; ReviewNB 0.0.1 documentation</title>
   
 
   
@@ -29,8 +29,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Installation" href="docker.html" />
-    <link rel="prev" title="Hosted ReviewNB" href="../hosted/index.html" /> 
+    <link rel="next" title="FAQ" href="../faq.html" />
+    <link rel="prev" title="Verify Bot Comments" href="bot_comments.html" /> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -87,12 +87,16 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Self Hosted ReviewNB</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Update On-Prem ReviewNB</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pull-new-docker-image">Pull new docker image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#run-new-container">Run new container</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -142,13 +146,15 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Self Hosted ReviewNB</li>
+          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
+        
+      <li>Update On-Prem ReviewNB</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/self-hosting/index.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/self-hosting/update.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,46 +167,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="self-hosted-reviewnb">
-<h1>Self Hosted ReviewNB<a class="headerlink" href="#self-hosted-reviewnb" title="Permalink to this headline">¶</a></h1>
-<p>We offer self hosted ReviewNB for companies interested in running it on their own. Self hosted ReviewNB works with GitHub.com or GitHub Enterprise Server.</p>
-<p>If you are inetersted in self hosting, <a href="https://docs.google.com/forms/d/1zb0riYOlSl-BMs1a1Q_wUEjE8-lZqqwRaA8V-6cpkKs" target="_blank">fill the form</a> and we’ll get in touch. Rest of this section goes over installation instructions for self hosting.</p>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Table of Contents:</span></p>
+  <div class="section" id="update-on-prem-reviewnb">
+<span id="update"></span><h1>Update On-Prem ReviewNB<a class="headerlink" href="#update-on-prem-reviewnb" title="Permalink to this headline">¶</a></h1>
+<p>We roll out fixes &amp; new features all the time so it’s important to keep your ReviewNB updated. We notify you via email every time a new update is available.
+Installing an update is as simple as pulling and running a new docker image. Here are the steps,</p>
+<div class="section" id="pull-new-docker-image">
+<h2>Pull new docker image<a class="headerlink" href="#pull-new-docker-image" title="Permalink to this headline">¶</a></h2>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#hardware">Hardware</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#prerequisite">Prerequisite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#run-the-image">Run the image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#verify-installation">Verify Installation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#domain-name-https-support">Domain Name &amp; HTTPS Support</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#verify-bot-comments">Verify Bot Comments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="docker.html#optional-tips">Optional Tips</a></li>
-</ul>
+<li><p class="first">SSH onto the box where ReviewNB is running.</p>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="database.html">Create Database</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gh_app.html">Create GitHub App</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#prerequisite">Prerequisite</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#create-new-app">Create New App</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#setup-urls-and-genral-information">Setup URLs and Genral Information</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#setup-permissions">Setup Permissions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#webhook-events-scope">Webhook Events &amp; Scope</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#generate-private-key">Generate Private Key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#upload-logo">Upload Logo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#get-app-config">Get App Config</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#how-to-read-private-key">How to read Private Key</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html#summary">Summary</a></li>
-</ul>
+<li><p class="first">Login (via docker CLI) to the Quay docker registry with the credentials we sent you in the initial registration email.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker login -u<span class="o">=</span><span class="s2">&quot;&lt;username&gt;&quot;</span> -p<span class="o">=</span><span class="s2">&quot;&lt;password&gt;&quot;</span> quay.io
+</pre></div>
+</div>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="bot_comments.html#how-to-verify">How to Verify</a></li>
-</ul>
+<li><p class="first">Pull the docker image. Image name &amp; tag would be availble in the upgrade email.</p>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker pull quay.io/reviewnb/&lt;your-company-name&gt;:&lt;reviewnb-version&gt;
+</pre></div>
+</div>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="update.html#pull-new-docker-image">Pull new docker image</a></li>
-<li class="toctree-l2"><a class="reference internal" href="update.html#run-new-container">Run new container</a></li>
 </ul>
-</li>
+</div>
+<div class="section" id="run-new-container">
+<h2>Run new container<a class="headerlink" href="#run-new-container" title="Permalink to this headline">¶</a></h2>
+<p>You will be stopping the old ReviewNB version in this step. Note that the service will be down after you stop the old container and until you start a new one (less than a minute typically).</p>
+<ul class="simple">
+<li>Note down the container ID</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker ps
+<span class="go">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Stop the running container</li>
+</ul>
+<div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> docker <span class="nb">kill</span> &lt;container_id&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference internal" href="docker.html#run-docker-image"><span class="std std-ref">Run new container</span></a>. [Tip: Our <cite>docker run</cite> command requires that you specify all environment variables. You can simply find the old <cite>docker run</cite> command with shell command history (ctrl+r) on Linux. And only change the image tag on that command.]</li>
 </ul>
 </div>
 </div>
@@ -213,10 +218,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="docker.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../hosted/index.html" class="btn btn-neutral" title="Hosted ReviewNB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="bot_comments.html" class="btn btn-neutral" title="Verify Bot Comments" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
