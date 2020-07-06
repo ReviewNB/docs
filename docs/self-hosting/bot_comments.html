@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,44 +11,49 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="FAQ" href="../faq.html" />
+    <link rel="next" title="Update On-Prem ReviewNB" href="update.html" />
     <link rel="prev" title="Create GitHub App" href="gh_app.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> ReviewNB
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> ReviewNB
           
 
           
@@ -76,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,6 +100,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#how-to-verify">How to Verify</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -104,6 +110,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -142,7 +149,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
         
@@ -168,8 +175,8 @@
   <div class="section" id="verify-bot-comments">
 <span id="bot-comments"></span><h1>Verify Bot Comments<a class="headerlink" href="#verify-bot-comments" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This verification happens at the very end after ReviewNB is installed and you can login succesfully.</p>
+<p class="admonition-title">Note</p>
+<p>This verification happens at the very end after ReviewNB is installed and you can login succesfully.</p>
 </div>
 <p>Anytime a new Pull Request is opened (containing notebook changes), our bot posts a comment to access this Pull Request in ReviewNB. See screenshot below. It’s a very useful feature to quickly jump from GitHub to ReviewNB.</p>
 <img alt="../_images/bot_message.png" class="align-center" src="../_images/bot_message.png" />
@@ -177,16 +184,16 @@
 <div class="section" id="how-to-verify">
 <h2>How to Verify<a class="headerlink" href="#how-to-verify" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Login to ReviewNB and allow access to some repositories from the UI.</li>
-<li>Create a new Pull Request on one of these repositories. Make sure the PR contains at least one notebook file change.</li>
-<li>Once the PR is created, you should almost instantly see bot comment on the Discussion tab in GitHub.</li>
+<li><p>Login to ReviewNB and allow access to some repositories from the UI.</p></li>
+<li><p>Create a new Pull Request on one of these repositories. Make sure the PR contains at least one notebook file change.</p></li>
+<li><p>Once the PR is created, you should almost instantly see bot comment on the Discussion tab in GitHub.</p></li>
 </ul>
 <p>If you are not seeing bot comments there’s likely something wrong with GitHub webhook delivery. You can take following troubleshooting steps,</p>
 <ul class="simple">
-<li>Head over to your newly created GitHub App -&gt; Advanced Tab. You can see webhook delivery failure reasons.</li>
-<li>If all webhook deliveries are failing with ‘Service Timeout’ or similar errors. Please make sure that your GitHub enterprise instance can make outbound calls to your on-prem ReviewNB.</li>
-<li>Look at container logs (<code class="docutils literal"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">&lt;container-id&gt;</span></code>) to see if logs are complaining about something.</li>
-<li>If still not resolved, write to us at <cite>support&#64;reviewnb.com</cite></li>
+<li><p>Head over to your newly created GitHub App -&gt; Advanced Tab. You can see webhook delivery failure reasons.</p></li>
+<li><p>If all webhook deliveries are failing with ‘Service Timeout’ or similar errors. Please make sure that your GitHub enterprise instance can make outbound calls to your on-prem ReviewNB.</p></li>
+<li><p>Look at container logs (<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">&lt;container-id&gt;</span></code>) to see if logs are complaining about something.</p></li>
+<li><p>If still not resolved, write to us at <cite>support&#64;reviewnb.com</cite></p></li>
 </ul>
 </div>
 </div>
@@ -199,10 +206,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="update.html" class="btn btn-neutral float-right" title="Update On-Prem ReviewNB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="gh_app.html" class="btn btn-neutral" title="Create GitHub App" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="gh_app.html" class="btn btn-neutral float-left" title="Create GitHub App" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -211,11 +218,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, ReviewNB.
+        
+        &copy; Copyright 2018, ReviewNB
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -227,36 +242,16 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

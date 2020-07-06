@@ -69,4 +69,3 @@
 .. |dynamic bookmarks| raw:: html
 
   <a href="https://medium.com/@amitrathi/dynamic-bookmarks-for-reviewnb-52a7db356d4" target="_blank">dynamic bookmarks</a>
-

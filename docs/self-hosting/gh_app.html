@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,44 +11,49 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="FAQ" href="../faq.html" />
+    <link rel="next" title="Verify Bot Comments" href="bot_comments.html" />
     <link rel="prev" title="Create Database" href="database.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> ReviewNB
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> ReviewNB
           
 
           
@@ -76,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -103,6 +108,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#summary">Summary</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -112,6 +119,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -150,7 +158,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
         
@@ -176,30 +184,30 @@
   <div class="section" id="create-github-app">
 <span id="id1"></span><h1>Create GitHub App<a class="headerlink" href="#create-github-app" title="Permalink to this headline">¶</a></h1>
 <p>GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via Oauth2 &amp; let user select repositories that ReviewNB should have access to.</p>
-<p>In this section, we’ll create a GitHub app for your self hosted ReviewNB installation. At the end, we require following fields to:</p>
+<p>In this section, we’ll create a GitHub app for your self hosted ReviewNB installation. By the end, we should have following values noted down:</p>
 <ul class="simple">
-<li>App ID</li>
-<li>App URL</li>
-<li>Client ID</li>
-<li>Client secret</li>
-<li>Private Key</li>
+<li><p>App ID</p></li>
+<li><p>App URL</p></li>
+<li><p>Client ID</p></li>
+<li><p>Client secret</p></li>
+<li><p>Private Key</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Throughout this document when we say GitHub account, it can be an individual/org account on github.com or your own GitHub enterprise installation, depending on the GitHub offering you are using.</p>
+<p class="admonition-title">Note</p>
+<p>Throughout this document when we say GitHub account, it can be an individual/org account on github.com or your own GitHub enterprise installation, depending on the GitHub offering you are using.</p>
 </div>
 <div class="section" id="prerequisite">
 <h2>Prerequisite<a class="headerlink" href="#prerequisite" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>You need to decide the endpoint at which you’ll be running ReviewNB. It’s typically <em>reviewnb.&lt;your-domain-name&gt;.com</em>. Your application won’t be running there as yet but you just need to know the endpoint you’ll be using.</li>
+<li><p>You need to decide the endpoint at which you’ll be running ReviewNB. It’s typically <em>reviewnb.&lt;your-domain-name&gt;.com</em>. Your application won’t be running there as yet but you just need to know the endpoint you’ll be using.</p></li>
 </ul>
 </div>
 <div class="section" id="create-new-app">
 <h2>Create New App<a class="headerlink" href="#create-new-app" title="Permalink to this headline">¶</a></h2>
 <p>Any GitHub account can own the app but we recommend creating it under org account of the team who is going to maintain the ReviewNB installation.</p>
 <ul class="simple">
-<li>Login to GitHub &amp; go to your org account page (e.g. <cite>https://github.corp.company.com/tools-org</cite>).</li>
-<li>Click on <em>Settings -&gt; GitHub Apps -&gt; New GitHub App</em> as shown below.</li>
+<li><p>Login to GitHub &amp; go to your org account page (e.g. <cite>https://github.corp.company.com/tools-org</cite>).</p></li>
+<li><p>Click on <em>Settings -&gt; GitHub Apps -&gt; New GitHub App</em> as shown below.</p></li>
 </ul>
 <a class="reference internal image-reference" href="../_images/gh_app_1.png"><img alt="../_images/gh_app_1.png" class="align-center" src="../_images/gh_app_1.png" style="width: 607.8px; height: 449.4px;" /></a>
 </div>
@@ -207,8 +215,8 @@
 <h2>Setup URLs and Genral Information<a class="headerlink" href="#setup-urls-and-genral-information" title="Permalink to this headline">¶</a></h2>
 <p>Fill in the general information as shown in the screenshot. For URLs, replace <em>reviewnb.&lt;your-domain-name&gt;.com</em> with actual endpoint at which you’ll be hosting ReviewNB application.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Do not forget trailing slashes for the URLs.</p>
+<p class="admonition-title">Note</p>
+<p>Do not forget trailing slashes for the URLs.</p>
 </div>
 <a class="reference internal image-reference" href="../_images/gh_app_2_v2.png"><img alt="../_images/gh_app_2_v2.png" class="align-center" src="../_images/gh_app_2_v2.png" style="width: 468.59999999999997px; height: 613.1999999999999px;" /></a>
 </div>
@@ -216,10 +224,10 @@
 <h2>Setup Permissions<a class="headerlink" href="#setup-permissions" title="Permalink to this headline">¶</a></h2>
 <p>We need following permissions for enabling all the ReviewNB functionality,</p>
 <ul class="simple">
-<li>Read <em>repository contents</em> to fetch notebooks and compute diff</li>
-<li>Read <em>repository metadata</em> to fetch list of commits and PRs</li>
-<li>Read-Write access to <em>pull requests</em> to read &amp; write PR comments</li>
-<li>Read access to <em>emails</em> for user profiles (<strong>Optional</strong>, older GitHub Enterprise do not have email permission)</li>
+<li><p>Read <em>repository contents</em> to fetch notebooks and compute diff</p></li>
+<li><p>Read <em>repository metadata</em> to fetch list of commits and PRs</p></li>
+<li><p>Read-Write access to <em>pull requests</em> to read &amp; write PR comments</p></li>
+<li><p>Read access to <em>emails</em> for user profiles (older GitHub Enterprise versions might not have email permission, please contact <em>support&#64;reviewnb.com</em> in such cases)</p></li>
 </ul>
 <p>You need to enable these under permissions section as shown below,</p>
 <a class="reference internal image-reference" href="../_images/gh_app_3.1.png"><img alt="../_images/gh_app_3.1.png" class="align-center" src="../_images/gh_app_3.1.png" style="width: 612.0px; height: 72.0px;" /></a>
@@ -230,8 +238,8 @@
 <div class="section" id="webhook-events-scope">
 <h2>Webhook Events &amp; Scope<a class="headerlink" href="#webhook-events-scope" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion.</li>
-<li>For the question, <em>“Where can this GitHub App be installed?”</em> choose <em>“Any account”</em> so other orgs in your company can use ReviewNB as well. For on-prem installations that work with github.com, only repositories under your company’s org account can be accessed via ReviewNB.</li>
+<li><p>Subscribe to Pull Request events so ReviewNB is notified when a PR is created and it can post the ReviewNB link on the PR discussion.</p></li>
+<li><p>For the question, <em>“Where can this GitHub App be installed?”</em> choose <em>“Any account”</em> so other orgs in your company can use ReviewNB as well. For on-prem installations that work with github.com, only repositories under your company’s org account can be accessed via ReviewNB.</p></li>
 </ul>
 <p>Click on <em>Create GitHub App</em></p>
 <a class="reference internal image-reference" href="../_images/gh_app_4_v2.png"><img alt="../_images/gh_app_4_v2.png" class="align-center" src="../_images/gh_app_4_v2.png" style="width: 658.4000000000001px; height: 728.8000000000001px;" /></a>
@@ -243,7 +251,7 @@
 </div>
 <div class="section" id="upload-logo">
 <h2>Upload Logo<a class="headerlink" href="#upload-logo" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference download internal" href="../_downloads/logo.png" download=""><code class="xref download docutils literal"><span class="pre">Download</span></code></a> the logo file and upload the logo to our app.</p>
+<p><a class="reference download internal" download="" href="../_downloads/c77ca3c100cdd6bb2ae5243bdaea81a5/logo.png"><code class="xref download docutils literal notranslate"><span class="pre">Download</span></code></a> the logo file and upload the logo to our app.</p>
 <a class="reference internal image-reference" href="../_images/upload_logo.png"><img alt="../_images/upload_logo.png" class="align-center" src="../_images/upload_logo.png" style="width: 633.6px; height: 326.40000000000003px;" /></a>
 </div>
 <div class="section" id="get-app-config">
@@ -265,11 +273,11 @@ Notice the regex replacement I’m using at the bottom. If your editor doesn’t
 <h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
 <p>At the end of this section you should have following values to be used as environment variables for ReviewNB container.</p>
 <ul class="simple">
-<li>App ID (<em>GITHUB_APP_ID</em>)</li>
-<li>App URL (<em>GITHUB_APP_URL</em>)</li>
-<li>Client ID (<em>GITHUB_CLIENT_ID</em>)</li>
-<li>Private Key (<em>GITHUB_APP_PEM</em>)</li>
-<li>Client secret (<em>GITHUB_CLIENT_SECRET</em>)</li>
+<li><p>App ID (<em>GITHUB_APP_ID</em>)</p></li>
+<li><p>App URL (<em>GITHUB_APP_URL</em>)</p></li>
+<li><p>Client ID (<em>GITHUB_CLIENT_ID</em>)</p></li>
+<li><p>Private Key (<em>GITHUB_APP_PEM</em>)</p></li>
+<li><p>Client secret (<em>GITHUB_CLIENT_SECRET</em>)</p></li>
 </ul>
 </div>
 </div>
@@ -282,10 +290,10 @@ Notice the regex replacement I’m using at the bottom. If your editor doesn’t
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="bot_comments.html" class="btn btn-neutral float-right" title="Verify Bot Comments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="database.html" class="btn btn-neutral" title="Create Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="database.html" class="btn btn-neutral float-left" title="Create Database" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -294,11 +302,19 @@ Notice the regex replacement I’m using at the bottom. If your editor doesn’t
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, ReviewNB.
+        
+        &copy; Copyright 2018, ReviewNB
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -310,36 +326,16 @@ Notice the regex replacement I’m using at the bottom. If your editor doesn’t
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

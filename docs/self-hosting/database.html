@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,44 +11,49 @@
   
 
   
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
-  
-
-  
-    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Create GitHub App" href="gh_app.html" />
     <link rel="prev" title="Installation" href="docker.html" /> 
-
-  
-  <script src="../_static/js/modernizr.min.js"></script>
-
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="../index.html" class="icon icon-home"> ReviewNB
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> ReviewNB
           
 
           
@@ -76,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -91,6 +96,8 @@
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -100,6 +107,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -138,7 +146,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="../index.html">Docs</a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
           <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
         
@@ -163,27 +171,26 @@
             
   <div class="section" id="create-database">
 <span id="id1"></span><h1>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h1>
-<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data.
-Since we only store essential information, the DB instance requirements are fairly low. Here’s the minimum spec we need,</p>
+<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. DB instance requirements are fairly low. Here’s the minimum spec we need,</p>
 <ul class="simple">
-<li>PostgreSQL Version - 9.5 and above</li>
-<li>Memory - 1GB minimum</li>
-<li>Disk Space - 16GB minimum</li>
+<li><p>PostgreSQL Version - 9.5 and above</p></li>
+<li><p>Memory - 1GB minimum</p></li>
+<li><p>Disk Space - 16GB minimum</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">We highly recommend using managed database (e.g. <em>AWS RDS</em> / <em>GCP Cloud SQL</em>) as the service takes care of availability and backups. Make sure the database is network accessible from machines on which you’re going to host ReviewNB application.</p>
+<p class="admonition-title">Note</p>
+<p>We highly recommend using managed database (e.g. <em>AWS RDS</em> / <em>GCP Cloud SQL</em>) as the service takes care of availability and backups. Make sure the database is network accessible from machines on which you’re going to host ReviewNB application. All other inbound network access must be prohibited to keep the DB safe &amp; secure.</p>
 </div>
 <p>Once your DB instance is running, connect to it via <em>psql</em> and create a new database.</p>
 <blockquote>
-<div><div class="highlight-console"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
 
 <span class="go">postgres=&gt; CREATE DATABASE rnb;</span>
 </pre></div>
 </div>
 </div></blockquote>
 <p>Note down the database connection string in the followign format. DB_NAME is the name of our newly created database. We’ll need to supply the following string as <em>DB_URL</em> environment variable on ReviewNB container.</p>
-<div class="highlight-console"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
 </pre></div>
 </div>
 </div>
@@ -199,7 +206,7 @@ Since we only store essential information, the DB instance requirements are fair
         <a href="gh_app.html" class="btn btn-neutral float-right" title="Create GitHub App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="docker.html" class="btn btn-neutral" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="docker.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -208,11 +215,19 @@ Since we only store essential information, the DB instance requirements are fair
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, ReviewNB.
+        
+        &copy; Copyright 2018, ReviewNB
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -224,36 +239,16 @@ Since we only store essential information, the DB instance requirements are fair
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'../',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="../_static/jquery.js"></script>
-      <script type="text/javascript" src="../_static/underscore.js"></script>
-      <script type="text/javascript" src="../_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

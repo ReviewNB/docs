@@ -1,8 +1,7 @@
 
 
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8">
   
@@ -12,44 +11,49 @@
   
 
   
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.png"/>
   
   
   
 
   
-
-  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
   
     
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
 
-  
-
-  
-    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Testimonials" href="testimonials.html" />
-    <link rel="prev" title="Create GitHub App" href="self-hosting/gh_app.html" /> 
-
-  
-  <script src="_static/js/modernizr.min.js"></script>
-
+    <link rel="prev" title="Update On-Prem ReviewNB" href="self-hosting/update.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
 
    
   <div class="wy-grid-for-nav">
-
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search">
+        <div class="wy-side-nav-search" >
           
 
           
-            <a href="index.html" class="icon icon-home"> ReviewNB
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> ReviewNB
           
 
           
@@ -76,6 +80,7 @@
           
         </div>
 
+        
         <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
           
             
@@ -95,6 +100,7 @@
             
           
         </div>
+        
       </div>
     </nav>
 
@@ -133,7 +139,7 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html">Docs</a> &raquo;</li>
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
       <li>FAQ</li>
     
@@ -156,51 +162,43 @@
             
   <div class="section" id="faq">
 <h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
-<dt><strong>Can we self host ReviewNB?</strong></dt>
-<dd><ul class="first last simple">
-<li>Yes. If you’re interested in on-prem installation, please <a href="https://docs.google.com/forms/d/1zb0riYOlSl-BMs1a1Q_wUEjE8-lZqqwRaA8V-6cpkKs" target="_blank">fill the form</a> and we’ll get in touch.</li>
+<dl class="simple">
+<dt><strong>Can we self host ReviewNB?</strong></dt><dd><ul class="simple">
+<li><p>Yes. If you’re interested in on-prem installation, please <a href="https://docs.google.com/forms/d/1zb0riYOlSl-BMs1a1Q_wUEjE8-lZqqwRaA8V-6cpkKs" target="_blank">fill the form</a> and we’ll get in touch.</p></li>
 </ul>
 </dd>
-<dt><strong>Does ReviewNB work with GitHub Enterprise?</strong></dt>
-<dd><ul class="first last simple">
-<li>Yes. Our self hosted installation works with GitHub Enterprise &amp; GitHub.com both.</li>
+<dt><strong>Does ReviewNB work with GitHub Enterprise?</strong></dt><dd><ul class="simple">
+<li><p>Yes. Our self hosted installation works with GitHub Enterprise &amp; GitHub.com both.</p></li>
 </ul>
 </dd>
-<dt><strong>Does ReviewNB work with GitLab or BitBucket?</strong></dt>
-<dd><ul class="first last simple">
-<li>Not yet. Additional platform support is one of our most requested feature. Feel free to <a href="https://github.com/reviewNB/support/issues?q=is%3Aissue+is%3Aopen+label%3A%22Platform+Support%22" target="_blank">upvote/follow updates</a>.</li>
+<dt><strong>Does ReviewNB work with GitLab or BitBucket?</strong></dt><dd><ul class="simple">
+<li><p>Not yet. Additional platform support is one of our most requested feature. Feel free to <a href="https://github.com/reviewNB/support/issues?q=is%3Aissue+is%3Aopen+label%3A%22Platform+Support%22" target="_blank">upvote/follow updates</a>.</p></li>
 </ul>
 </dd>
-<dt><strong>Which repositories can ReviewNB access?</strong></dt>
-<dd><ul class="first last simple">
-<li>We can only access repositories for which you have enabled ReviewNB on GitHub</li>
-<li>You can enable/disable individual repository access at any time from GitHub</li>
+<dt><strong>Which repositories can ReviewNB access?</strong></dt><dd><ul class="simple">
+<li><p>We can only access repositories for which you have enabled ReviewNB on GitHub</p></li>
+<li><p>You can enable/disable individual repository access at any time from GitHub</p></li>
 </ul>
 </dd>
-<dt><strong>What GitHub permissions do you need?</strong></dt>
-<dd><ul class="first last simple">
-<li>Read repository contents to fetch notebooks and compute diff</li>
-<li>Read repository metadata to fetch list of commits and PRs</li>
-<li>Read-Write access to pull requests to read &amp; write PR comments</li>
+<dt><strong>What GitHub permissions do you need?</strong></dt><dd><ul class="simple">
+<li><p>Read repository contents to fetch notebooks and compute diff</p></li>
+<li><p>Read repository metadata to fetch list of commits and PRs</p></li>
+<li><p>Read-Write access to pull requests to read &amp; write PR comments</p></li>
 </ul>
 </dd>
-<dt><strong>How can we trust ReviewNB with our private repositories?</strong></dt>
-<dd><ul class="first last simple">
-<li>ReviewNB does NOT store any repository contents. Notebooks / Diffs / Comments / Commits / PRs, none of these are stored in ReviewNB</li>
-<li>Anytime you open a diff, we make API calls to GitHub to fetch the data. We process the diff and serve it to your browser in real time</li>
-<li>Any comments you write are also directly posted to GitHub &amp; not stored in ReviewNB</li>
+<dt><strong>How can we trust ReviewNB with our private repositories?</strong></dt><dd><ul class="simple">
+<li><p>ReviewNB does NOT store any repository contents. Notebooks / Diffs / Comments / Commits / PRs, none of these are stored in ReviewNB</p></li>
+<li><p>Anytime you open a diff, we make API calls to GitHub to fetch the data. We process the diff and serve it to your browser in real time</p></li>
+<li><p>Any comments you write are also directly posted to GitHub &amp; not stored in ReviewNB</p></li>
 </ul>
 </dd>
-<dt><strong>What about GitHub access token security?</strong></dt>
-<dd><ul class="first last simple">
-<li>GitHub access tokens are stored with AES (Advanced Encryption Standard) encryption</li>
-<li>Every time you logout and login, we generate a new GitHub access token. That way, your tokens are automatically rotated and the old one becomes defunct</li>
+<dt><strong>What about GitHub access token security?</strong></dt><dd><ul class="simple">
+<li><p>GitHub access tokens are stored with AES (Advanced Encryption Standard) encryption</p></li>
+<li><p>Every time you logout and login, we generate a new GitHub access token. That way, your tokens are automatically rotated and the old one becomes defunct</p></li>
 </ul>
 </dd>
-<dt><strong>Still, how can we trust ReviewNB?</strong></dt>
-<dd><ul class="first last simple">
-<li>Our app has been <a href="https://developer.github.com/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/#security" target="_blank">verified by GitHub</a> team &amp; approved for sell on GitHub marketplace. You can see Verified by GitHub badge on our <a href="https://github.com/marketplace/review-notebook-app" target="_blank">marketplace listing</a>.</li>
+<dt><strong>Still, how can we trust ReviewNB?</strong></dt><dd><ul class="simple">
+<li><p>Our app has been <a href="https://developer.github.com/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/#security" target="_blank">verified by GitHub</a> team &amp; approved for sell on GitHub marketplace. You can see Verified by GitHub badge on our <a href="https://github.com/marketplace/review-notebook-app" target="_blank">marketplace listing</a>.</p></li>
 </ul>
 </dd>
 </dl>
@@ -217,7 +215,7 @@
         <a href="testimonials.html" class="btn btn-neutral float-right" title="Testimonials" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="self-hosting/gh_app.html" class="btn btn-neutral" title="Create GitHub App" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="self-hosting/update.html" class="btn btn-neutral float-left" title="Update On-Prem ReviewNB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -226,11 +224,19 @@
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2018, ReviewNB.
+        
+        &copy; Copyright 2018, ReviewNB
 
     </p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
 
@@ -242,36 +248,16 @@
   </div>
   
 
-
-  
-
-    <script type="text/javascript">
-        var DOCUMENTATION_OPTIONS = {
-            URL_ROOT:'./',
-            VERSION:'0.0.1',
-            LANGUAGE:'None',
-            COLLAPSE_INDEX:false,
-            FILE_SUFFIX:'.html',
-            HAS_SOURCE:  true,
-            SOURCELINK_SUFFIX: '.txt'
-        };
-    </script>
-      <script type="text/javascript" src="_static/jquery.js"></script>
-      <script type="text/javascript" src="_static/underscore.js"></script>
-      <script type="text/javascript" src="_static/doctools.js"></script>
-
-  
-
-  
-  
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-  
-
   <script type="text/javascript">
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script> 
+  </script>
+
+  
+  
+    
+   
 
 </body>
 </html>

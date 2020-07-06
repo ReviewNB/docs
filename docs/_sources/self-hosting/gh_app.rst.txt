@@ -6,7 +6,7 @@ Create GitHub App
 =================
 GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via Oauth2 & let user select repositories that ReviewNB should have access to.
 
-In this section, we'll create a GitHub app for your self hosted ReviewNB installation. At the end, we require following fields to:
+In this section, we'll create a GitHub app for your self hosted ReviewNB installation. By the end, we should have following values noted down:
 
 * App ID
 * App URL
@@ -52,7 +52,7 @@ We need following permissions for enabling all the ReviewNB functionality,
 * Read *repository contents* to fetch notebooks and compute diff
 * Read *repository metadata* to fetch list of commits and PRs
 * Read-Write access to *pull requests* to read & write PR comments
-* Read access to *emails* for user profiles (**Optional**, older GitHub Enterprise do not have email permission)
+* Read access to *emails* for user profiles (older GitHub Enterprise versions might not have email permission, please contact *support@reviewnb.com* in such cases)
 
 You need to enable these under permissions section as shown below,
 
