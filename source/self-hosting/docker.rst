@@ -115,6 +115,15 @@ Troubleshooting
 - If all environment variables are set correctly and you're still seeing errors, look at container logs (``docker logs <container-id>``) to see if logs are complaining about something.
 - If still not resolved, reach out to `support@reviewnb.com`
 
+Domain Name & HTTPS Support
+----------------------------
+At this point, the application is simply running on port 80 and 443 on an instance. You should,
+
+- Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
+- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. *reviewnb.xyz-company.com*)
+
+Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
+
 Verify Test Email
 --------------------------
 Once you see the login page without any errors, you should visit ``/send_test_email`` as shown below.
@@ -132,15 +141,6 @@ If you don't receive test email,
 - Check container logs (``docker logs <container-id>``) to see if there are any errors
 - Check your SMTP server logs to see if email failed to send for some reason
 - If still not resolved, reach out to `support@reviewnb.com`
-
-Domain Name & HTTPS Support
-----------------------------
-At this point, the application is simply running on port 80 and 443 on an instance. You should,
-
-- Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
-- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. *reviewnb.xyz-company.com*)
-
-Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
 
 Verify Bot Comments
 --------------------------
