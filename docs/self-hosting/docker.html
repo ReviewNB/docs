@@ -101,8 +101,8 @@
 <li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#verify-test-email">Verify Test Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#domain-name-https-support">Domain Name &amp; HTTPS Support</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-test-email">Verify Test Email</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#verify-bot-comments">Verify Bot Comments</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#optional-tips">Optional Tips</a></li>
 </ul>
@@ -331,6 +331,15 @@ Do not login just yet, you can login after adding HTTPS suppport (last step belo
 </ul>
 </div>
 </div>
+<div class="section" id="domain-name-https-support">
+<h2>Domain Name &amp; HTTPS Support<a class="headerlink" href="#domain-name-https-support" title="Permalink to this headline">¶</a></h2>
+<p>At this point, the application is simply running on port 80 and 443 on an instance. You should,</p>
+<ul class="simple">
+<li><p>Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2</p></li>
+<li><p>Add a CNAME entry that points <code class="docutils literal notranslate"><span class="pre">REVIEWNB_BASE_URL</span></code> to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. <em>reviewnb.xyz-company.com</em>)</p></li>
+</ul>
+<p>Once the HTTPS support is added, you can set an additional environment variable <code class="docutils literal notranslate"><span class="pre">SSL_REDIRECT=1</span></code> to redirect all HTTP traffic to be served via secure HTTPS protocol.</p>
+</div>
 <div class="section" id="verify-test-email">
 <h2>Verify Test Email<a class="headerlink" href="#verify-test-email" title="Permalink to this headline">¶</a></h2>
 <p>Once you see the login page without any errors, you should visit <code class="docutils literal notranslate"><span class="pre">/send_test_email</span></code> as shown below.</p>
@@ -343,15 +352,6 @@ Do not login just yet, you can login after adding HTTPS suppport (last step belo
 <li><p>Check your SMTP server logs to see if email failed to send for some reason</p></li>
 <li><p>If still not resolved, reach out to <cite>support&#64;reviewnb.com</cite></p></li>
 </ul>
-</div>
-<div class="section" id="domain-name-https-support">
-<h2>Domain Name &amp; HTTPS Support<a class="headerlink" href="#domain-name-https-support" title="Permalink to this headline">¶</a></h2>
-<p>At this point, the application is simply running on port 80 and 443 on an instance. You should,</p>
-<ul class="simple">
-<li><p>Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2</p></li>
-<li><p>Add a CNAME entry that points <code class="docutils literal notranslate"><span class="pre">REVIEWNB_BASE_URL</span></code> to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. <em>reviewnb.xyz-company.com</em>)</p></li>
-</ul>
-<p>Once the HTTPS support is added, you can set an additional environment variable <code class="docutils literal notranslate"><span class="pre">SSL_REDIRECT=1</span></code> to redirect all HTTP traffic to be served via secure HTTPS protocol.</p>
 </div>
 <div class="section" id="verify-bot-comments">
 <h2>Verify Bot Comments<a class="headerlink" href="#verify-bot-comments" title="Permalink to this headline">¶</a></h2>
