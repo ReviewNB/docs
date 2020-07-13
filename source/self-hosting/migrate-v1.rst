@@ -5,7 +5,9 @@
 Migrate From 0.1.x to 0.2.x
 ============================
 This is a major version upgrade with some |new exciting features|. There's only one change required in setup/installation - we require SMTP settings to send emails.
-This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation. You can use the same SMTP settings that you are using with GitHub Enterprise or any other SMTP server you might have (even GMail/GSuite).
+This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation.
+
+You can use the same SMTP settings that you are using with GitHub Enterprise or any other SMTP server you might have (even GMail/GSuite).
 Following SMTP server credentials are required to be set as environment variables.
 
    * *EMAIL_HOST*: URL of SMTP server
