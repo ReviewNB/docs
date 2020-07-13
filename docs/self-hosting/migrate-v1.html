@@ -172,9 +172,10 @@
             
   <div class="section" id="migrate-from-0-1-x-to-0-2-x">
 <span id="migrate-v1"></span><h1>Migrate From 0.1.x to 0.2.x<a class="headerlink" href="#migrate-from-0-1-x-to-0-2-x" title="Permalink to this headline">¶</a></h1>
-<p>This is a major version upgrade with some <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">new exciting features</a>. There’s only one change required in setup/installation - we require connecting to SMTP server to send emails.
-This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation. You can use the same SMTP settings that you are using with GitHub Enterprise or any other SMTP server you might have (even GMail/GSuite).
-Following SMTP server credentials are required.</p>
+<p>This is a major version upgrade with some <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">new exciting features</a>. There’s only one change required in setup/installation - we require SMTP settings to send emails.
+This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation.</p>
+<p>You can use the same SMTP settings that you are using with GitHub Enterprise or any other SMTP server you might have (even GMail/GSuite).
+Following SMTP server credentials are required to be set as environment variables.</p>
 <blockquote>
 <div><ul class="simple">
 <li><p><em>EMAIL_HOST</em>: URL of SMTP server</p></li>
@@ -185,7 +186,7 @@ Following SMTP server credentials are required.</p>
 <li><p><em>TEST_EMAIL_ADDRESS</em>: Your own email address to receive test email to verify all SMTP settings are correct.</p></li>
 </ul>
 </div></blockquote>
-<p>Once you have gathered above SMTP settings then  just</p>
+<p>Once you have gathered above SMTP settings then just,</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="docker.html#pull-and-run-docker-image"><span class="std std-ref">Run the image</span></a></p></li>
 <li><p><a class="reference internal" href="docker.html#verify-test-email"><span class="std std-ref">Verify Test Email</span></a></p></li>
