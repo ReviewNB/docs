@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create Database &mdash; ReviewNB 0.0.1 documentation</title>
+  <title>Update On-Prem ReviewNB &mdash; ReviewNB 0.0.1 documentation</title>
   
 
   
@@ -37,9 +37,7 @@
 
     
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create GitHub App" href="gh_app.html" />
-    <link rel="prev" title="Installation" href="docker.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -89,18 +87,10 @@
             
             
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../features.html">Features</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Create Database</a></li>
-<li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
-<li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrate-v1.html">Migrate From 0.1.x to 0.2.x</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
 </ul>
@@ -149,15 +139,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
-        
-      <li>Create Database</li>
+      <li>Update On-Prem ReviewNB</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/self-hosting/database.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/self-hosting/migrate.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -170,29 +158,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="create-database">
-<span id="id1"></span><h1>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h1>
-<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. DB instance requirements are fairly low. Here’s the minimum spec we need,</p>
-<ul class="simple">
-<li><p>PostgreSQL Version - 9.5 and above</p></li>
-<li><p>Memory - 1GB minimum</p></li>
-<li><p>Disk Space - 16GB minimum</p></li>
+  <div class="section" id="update-on-prem-reviewnb">
+<span id="update"></span><h1>Update On-Prem ReviewNB<a class="headerlink" href="#update-on-prem-reviewnb" title="Permalink to this headline">¶</a></h1>
+<p>We roll out fixes &amp; new features all the time so it’s important to keep your ReviewNB updated. We notify you via email every time a new update is available.
+Installing an update is as simple as pulling and running a new docker image. Here are the steps,</p>
+<div class="section" id="pull-new-docker-image">
+<h2>Pull new docker image<a class="headerlink" href="#pull-new-docker-image" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>SSH onto the box where ReviewNB is running.</p></li>
+<li><p>Login (via docker CLI) to Quay docker registry with the credentials we sent you in the initial registration email.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker login -u<span class="o">=</span><span class="s2">&quot;&lt;username&gt;&quot;</span> -p<span class="o">=</span><span class="s2">&quot;&lt;password&gt;&quot;</span> quay.io
+</pre></div>
+</div>
+</li>
+<li><p>Pull the docker image. Image name &amp; tag would be availble in the upgrade email.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker pull quay.io/reviewnb/&lt;your-company-name&gt;:&lt;reviewnb-version&gt;
+</pre></div>
+</div>
+</li>
 </ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We highly recommend using managed database (e.g. <em>AWS RDS</em> / <em>GCP Cloud SQL</em>) as the service takes care of availability and backups. Make sure the database is network accessible from machines on which you’re going to host ReviewNB application. All other inbound network access must be prohibited to keep the DB safe &amp; secure.</p>
 </div>
-<p>Once your DB instance is running, connect to it via <em>psql</em> and create a new database.</p>
-<blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
-
-<span class="go">postgres=&gt; CREATE DATABASE rnb;</span>
+<div class="section" id="run-new-container">
+<h2>Run new container<a class="headerlink" href="#run-new-container" title="Permalink to this headline">¶</a></h2>
+<p>You will be stopping the old ReviewNB version in this step. Note that the service will be down after you stop the old container and until you start a new one (less than a minute typically).</p>
+<ul class="simple">
+<li><p>Note down the container ID</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker ps
+<span class="go">CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES</span>
 </pre></div>
 </div>
-</div></blockquote>
-<p>Note down the database connection string in the followign format. DB_NAME is the name of our newly created database. We’ll need to supply the following string as <em>DB_URL</em> environment variable on ReviewNB container.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
+<ul class="simple">
+<li><p>Stop the running container</p></li>
+</ul>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker <span class="nb">kill</span> &lt;container_id&gt;
 </pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="docker.html#run-docker-image"><span class="std std-ref">Run new container</span></a>. [Tip: Our <cite>docker run</cite> command requires that you specify all environment variables. You can simply find the old <cite>docker run</cite> command with shell command history (ctrl+r) on Linux. Then you only need to replace the image tag on that command with a new one.]</p></li>
+</ul>
 </div>
 </div>
 
@@ -201,15 +205,6 @@
            
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="gh_app.html" class="btn btn-neutral float-right" title="Create GitHub App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="docker.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

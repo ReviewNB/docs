@@ -15,3 +15,4 @@ If you are inetersted in self hosting, |fill the form| and we'll get in touch. R
    gh_app
    bot_comments
    update
+   migrate-v1

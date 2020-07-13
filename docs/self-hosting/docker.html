@@ -113,6 +113,7 @@
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
+<li class="toctree-l2"><a class="reference internal" href="migrate-v1.html">Migrate From 0.1.x to 0.2.x</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -217,7 +218,7 @@
 </ul>
 </div>
 <div class="section" id="run-the-image">
-<h2>Run the image<a class="headerlink" href="#run-the-image" title="Permalink to this headline">¶</a></h2>
+<span id="pull-and-run-docker-image"></span><h2>Run the image<a class="headerlink" href="#run-the-image" title="Permalink to this headline">¶</a></h2>
 <ul>
 <li><p>Login (via docker CLI) to Quay docker registry with the credentials we sent you via email.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> docker login -u<span class="o">=</span><span class="s2">&quot;&lt;username&gt;&quot;</span> -p<span class="o">=</span><span class="s2">&quot;&lt;password&gt;&quot;</span> quay.io
@@ -341,7 +342,7 @@ Do not login just yet, you can login after adding HTTPS suppport (last step belo
 <p>Once the HTTPS support is added, you can set an additional environment variable <code class="docutils literal notranslate"><span class="pre">SSL_REDIRECT=1</span></code> to redirect all HTTP traffic to be served via secure HTTPS protocol.</p>
 </div>
 <div class="section" id="verify-test-email">
-<h2>Verify Test Email<a class="headerlink" href="#verify-test-email" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>Verify Test Email<a class="headerlink" href="#verify-test-email" title="Permalink to this headline">¶</a></h2>
 <p>Once you see the login page without any errors, you should visit <code class="docutils literal notranslate"><span class="pre">/send_test_email</span></code> as shown below.</p>
 <img alt="../_images/send_test_email.png" class="align-center" src="../_images/send_test_email.png" />
 <p>You must receive a test email on <code class="docutils literal notranslate"><span class="pre">TEST_EMAIL_ADDRESS</span></code> you specified.</p>

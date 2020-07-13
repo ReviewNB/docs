@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create Database &mdash; ReviewNB 0.0.1 documentation</title>
+  <title>Migrate From 0.1.x to 0.2.x &mdash; ReviewNB 0.0.1 documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Create GitHub App" href="gh_app.html" />
-    <link rel="prev" title="Installation" href="docker.html" /> 
+    <link rel="next" title="FAQ" href="../faq.html" />
+    <link rel="prev" title="Update On-Prem ReviewNB" href="update.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -94,11 +94,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Create Database</a></li>
+<li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
 <li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrate-v1.html">Migrate From 0.1.x to 0.2.x</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Migrate From 0.1.x to 0.2.x</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../faq.html">FAQ</a></li>
@@ -151,13 +151,13 @@
         
           <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
         
-      <li>Create Database</li>
+      <li>Migrate From 0.1.x to 0.2.x</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/self-hosting/database.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/self-hosting/migrate-v1.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -170,30 +170,27 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="create-database">
-<span id="id1"></span><h1>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h1>
-<p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. DB instance requirements are fairly low. Here’s the minimum spec we need,</p>
-<ul class="simple">
-<li><p>PostgreSQL Version - 9.5 and above</p></li>
-<li><p>Memory - 1GB minimum</p></li>
-<li><p>Disk Space - 16GB minimum</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>We highly recommend using managed database (e.g. <em>AWS RDS</em> / <em>GCP Cloud SQL</em>) as the service takes care of availability and backups. Make sure the database is network accessible from machines on which you’re going to host ReviewNB application. All other inbound network access must be prohibited to keep the DB safe &amp; secure.</p>
-</div>
-<p>Once your DB instance is running, connect to it via <em>psql</em> and create a new database.</p>
+  <div class="section" id="migrate-from-0-1-x-to-0-2-x">
+<span id="migrate-v1"></span><h1>Migrate From 0.1.x to 0.2.x<a class="headerlink" href="#migrate-from-0-1-x-to-0-2-x" title="Permalink to this headline">¶</a></h1>
+<p>This is a major version upgrade with some <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">new exciting features</a>. There’s only one change required in setup/installation - we require connecting to SMTP server to send emails.
+This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation. You can use the same SMTP settings that you are using with GitHub Enterprise or any other SMTP server you might have (even GMail/GSuite).
+Following SMTP server credentials are required.</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
-
-<span class="go">postgres=&gt; CREATE DATABASE rnb;</span>
-</pre></div>
-</div>
+<div><ul class="simple">
+<li><p><em>EMAIL_HOST</em>: URL of SMTP server</p></li>
+<li><p><em>EMAIL_PORT</em>: Port number of SMTP server (defaults to port 587 if none specified)</p></li>
+<li><p><em>EMAIL_HOST_USER</em>: Username to authenticate with SMTP server</p></li>
+<li><p><em>EMAIL_HOST_PASSWORD</em>: Password to authenticate with SMTP server</p></li>
+<li><p><em>SENDER_EMAIL_ADDRESS</em>: Email address of the sender e.g. <em>no-reply&#64;&lt;your-domain&gt;.com</em></p></li>
+<li><p><em>TEST_EMAIL_ADDRESS</em>: Your own email address to receive test email to verify all SMTP settings are correct.</p></li>
+</ul>
 </div></blockquote>
-<p>Note down the database connection string in the followign format. DB_NAME is the name of our newly created database. We’ll need to supply the following string as <em>DB_URL</em> environment variable on ReviewNB container.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
-</pre></div>
-</div>
+<p>Once you have gathered above SMTP settings then  just</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="docker.html#pull-and-run-docker-image"><span class="std std-ref">Run the image</span></a></p></li>
+<li><p><a class="reference internal" href="docker.html#verify-test-email"><span class="std std-ref">Verify Test Email</span></a></p></li>
+</ul>
+<p>That’s all! Now you are upgraded to ReviewNB 0.2.x</p>
 </div>
 
 
@@ -204,10 +201,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="gh_app.html" class="btn btn-neutral float-right" title="Create GitHub App" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../faq.html" class="btn btn-neutral float-right" title="FAQ" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="docker.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="update.html" class="btn btn-neutral float-left" title="Update On-Prem ReviewNB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
