@@ -29,6 +29,7 @@ Prerequisite
    * *SENDER_EMAIL_ADDRESS*: Email address of the sender e.g. *no-reply@<your-domain>.com*
 
 
+.. _pull_and_run_docker_image:
 
 Run the image
 --------------------------
@@ -123,6 +124,8 @@ At this point, the application is simply running on port 80 and 443 on an instan
 - Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. *reviewnb.xyz-company.com*)
 
 Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
+
+.. _verify_test_email:
 
 Verify Test Email
 --------------------------
