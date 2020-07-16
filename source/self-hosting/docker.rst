@@ -1,5 +1,7 @@
 .. include:: ../globals.rst
 
+.. _docker_installation:
+
 Installation
 =====================
 
