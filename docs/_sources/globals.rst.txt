@@ -56,7 +56,7 @@
 
 .. |verified by GitHub| raw:: html
 
-  <a href="https://developer.github.com/marketplace/getting-started/requirements-for-listing-an-app-on-github-marketplace/#security" target="_blank">verified by GitHub</a>
+  <a href="https://docs.github.com/en/developers/github-marketplace/requirements-for-listing-an-app#security" target="_blank">verified by GitHub</a>
 
 .. |br| raw:: html
 
@@ -73,3 +73,11 @@
 .. |new exciting features| raw:: html
 
   <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">new exciting features</a>
+
+.. |public repository| raw:: html
+
+  <a href="https://github.com/reviewNB/support/issues" target="_blank">public repository</a>
+
+.. |Team conversations| raw:: html
+
+  <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">Team conversations</a>
