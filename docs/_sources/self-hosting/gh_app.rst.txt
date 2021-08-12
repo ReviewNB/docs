@@ -33,7 +33,7 @@ Any GitHub account can own the app but we recommend creating it under org accoun
    :align: center
 
 
-Setup URLs and Genral Information
+Setup URLs and General Information
 ----------------------------------
 Fill in the general information as shown in the screenshot. For URLs, replace *reviewnb.<your-domain-name>.com* with actual endpoint at which you'll be hosting ReviewNB application.
 
