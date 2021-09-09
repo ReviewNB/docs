@@ -76,33 +76,38 @@ This will download the image, start a container and publish ports needed to acce
 
 Source for environment variables,
 
-+-------------------------------+--------------------------------------------------------------------------------+
-| `-`-env variables             | Source                                                                         |
-+===============================+================================================================================+
-| ``GITHUB_BASE_URL``           | | Endpoint at which your company's GitHub enterprise instance is running       |
-|                               | |                                                                              |
-|                               | | If you are using ReviewNB with github.com then use ``https://github.com``    |
-+-------------------------------+--------------------------------------------------------------------------------+
-| ``REVIEWNB_BASE_URL``         | Endpoint at which your self hosted ReviewNB will be running                    |
-+-------------------------------+--------------------------------------------------------------------------------+
-| ``DB_URL``                    | :ref:`create_database`                                                         |
-+-------------------------------+--------------------------------------------------------------------------------+
-| - ``GITHUB_APP_ID``           | :ref:`create_github_app`                                                       |
-| - ``GITHUB_APP_URL``          |                                                                                |
-| - ``GITHUB_CLIENT_ID``        |                                                                                |
-| - ``GITHUB_APP_PEM``          |                                                                                |
-| - ``GITHUB_CLIENT_SECRET``    |                                                                                |
-+-------------------------------+--------------------------------------------------------------------------------+
-| - ``EMAIL_HOST``              | | These are SMTP server settings required to send emails when a new comment    |
-| - ``EMAIL_PORT``              | | is posted on a notebook. You can use any SMTP server.                        |
-| - ``EMAIL_HOST_USER``         | |                                                                              |
-| - ``EMAIL_HOST_PASSWORD``     | | `SENDER_EMAIL_ADDRESS` is used as a `from` field for each email.             |
-| - ``SENDER_EMAIL_ADDRESS``    | | Make sure the sender email is acceptable to your SMTP server.                |
-+-------------------------------+--------------------------------------------------------------------------------+
-| ``TEST_EMAIL_ADDRESS``        | Use your own email address. A test email will be sent on this address.         |
-+-------------------------------+--------------------------------------------------------------------------------+
-| ``EMAIL_USE_TLS`` (optional)  | Set this to "0" if your SMTP server does not support TLS protocol.             |
-+-------------------------------+--------------------------------------------------------------------------------+
++-------------------------------+---------------------------------------------------------------------------------+
+| `-`-env variables             | Source                                                                          |
++===============================+=================================================================================+
+| ``GITHUB_BASE_URL``           | | Endpoint at which your company's GitHub enterprise instance is running        |
+|                               | |                                                                               |
+|                               | | If you are using ReviewNB with github.com then use ``https://github.com``     |
++-------------------------------+---------------------------------------------------------------------------------+
+| ``REVIEWNB_BASE_URL``         | | Endpoint at which your self hosted ReviewNB will be running                   |
+|                               | |                                                                               |
+|                               | | If you are using ReviewNB with self hosted GitHub Enterprise (GHE) then       |
+|                               | | ``REVIEWNB_BASE_URL`` should have same top level domain as ``GITHUB_BASE_URL``|
+|                               | | E.g. If you're GHE is running on `github.prod.company.com` then               |
+|                               | | ``REVIEWNB_BASE_URL`` should also end with `.company.com`                     |
++-------------------------------+---------------------------------------------------------------------------------+
+| ``DB_URL``                    | :ref:`create_database`                                                          |
++-------------------------------+---------------------------------------------------------------------------------+
+| - ``GITHUB_APP_ID``           | :ref:`create_github_app`                                                        |
+| - ``GITHUB_APP_URL``          |                                                                                 |
+| - ``GITHUB_CLIENT_ID``        |                                                                                 |
+| - ``GITHUB_APP_PEM``          |                                                                                 |
+| - ``GITHUB_CLIENT_SECRET``    |                                                                                 |
++-------------------------------+---------------------------------------------------------------------------------+
+| - ``EMAIL_HOST``              | | These are SMTP server settings required to send emails when a new comment     |
+| - ``EMAIL_PORT``              | | is posted on a notebook. You can use any SMTP server.                         |
+| - ``EMAIL_HOST_USER``         | |                                                                               |
+| - ``EMAIL_HOST_PASSWORD``     | | `SENDER_EMAIL_ADDRESS` is used as a `from` field for each email.              |
+| - ``SENDER_EMAIL_ADDRESS``    | | Make sure the sender email is acceptable to your SMTP server.                 |
++-------------------------------+---------------------------------------------------------------------------------+
+| ``TEST_EMAIL_ADDRESS``        | Use your own email address. A test email will be sent on this address.          |
++-------------------------------+---------------------------------------------------------------------------------+
+| ``EMAIL_USE_TLS`` (optional)  | Set this to "0" if your SMTP server does not support TLS protocol.              |
++-------------------------------+---------------------------------------------------------------------------------+
 
 Verify Installation
 --------------------------
@@ -155,7 +160,10 @@ You must perform this verification step to make sure all features are working as
 
 ------------
 
-That's all! You have succesfully installed and verified ReviewNB application & it's ready for use. |:partying_face:|
+.. note::
+  Please do not skip any of the verification steps above. All steps are essential for a successful installation.
+
+That's all! You have successfully installed and verified ReviewNB application & it's ready for use. |:partying_face:|
 
 
 Optional Tips

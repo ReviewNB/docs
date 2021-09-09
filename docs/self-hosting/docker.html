@@ -276,7 +276,15 @@ quay.io/reviewnb/&lt;your-company-name&gt;:&lt;reviewnb-version&gt;
 </td>
 </tr>
 <tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">REVIEWNB_BASE_URL</span></code></p></td>
-<td><p>Endpoint at which your self hosted ReviewNB will be running</p></td>
+<td><div class="line-block">
+<div class="line">Endpoint at which your self hosted ReviewNB will be running</div>
+<div class="line"><br /></div>
+<div class="line">If you are using ReviewNB with self hosted GitHub Enterprise (GHE) then</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">REVIEWNB_BASE_URL</span></code> should have same top level domain as <code class="docutils literal notranslate"><span class="pre">GITHUB_BASE_URL</span></code></div>
+<div class="line">E.g. If you’re GHE is running on <cite>github.prod.company.com</cite> then</div>
+<div class="line"><code class="docutils literal notranslate"><span class="pre">REVIEWNB_BASE_URL</span></code> should also end with <cite>.company.com</cite></div>
+</div>
+</td>
 </tr>
 <tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">DB_URL</span></code></p></td>
 <td><p><a class="reference internal" href="database.html#create-database"><span class="std std-ref">Create Database</span></a></p></td>
@@ -360,7 +368,11 @@ Do not login just yet, you can login after adding HTTPS suppport (last step belo
 <li><p><a class="reference internal" href="bot_comments.html#bot-comments"><span class="std std-ref">Verify Bot Comments</span></a></p></li>
 </ul>
 <hr class="docutils" />
-<p>That’s all! You have succesfully installed and verified ReviewNB application &amp; it’s ready for use. 🥳</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please do not skip any of the verification steps above. All steps are essential for a successful installation.</p>
+</div>
+<p>That’s all! You have successfully installed and verified ReviewNB application &amp; it’s ready for use. 🥳</p>
 <div class="section" id="optional-tips">
 <h3>Optional Tips<a class="headerlink" href="#optional-tips" title="Permalink to this headline">¶</a></h3>
 <p>Some handy tips for ReviewNB users,</p>
