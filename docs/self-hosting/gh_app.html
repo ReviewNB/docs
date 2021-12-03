@@ -201,6 +201,10 @@
 <ul class="simple">
 <li><p>You need to decide the endpoint at which you’ll be running ReviewNB. It’s typically <em>reviewnb.&lt;your-domain-name&gt;.com</em>. Your application won’t be running there as yet but you just need to know the endpoint you’ll be using.</p></li>
 </ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For integrating with GitHub Enterprise Server (GHE), the top level domain for ReviewNB must be same as the top level GHE domain. E.g. If you’re GHE is running on <cite>github.prod.company.com</cite> then ReviewNB should also run at <cite>.company.com</cite> endpoint.</p>
+</div>
 </div>
 <div class="section" id="create-new-app">
 <h2>Create New App<a class="headerlink" href="#create-new-app" title="Permalink to this headline">¶</a></h2>
@@ -213,12 +217,16 @@
 </div>
 <div class="section" id="setup-urls-and-general-information">
 <h2>Setup URLs and General Information<a class="headerlink" href="#setup-urls-and-general-information" title="Permalink to this headline">¶</a></h2>
-<p>Fill in the general information as shown in the screenshot. For URLs, replace <em>reviewnb.&lt;your-domain-name&gt;.com</em> with actual endpoint at which you’ll be hosting ReviewNB application.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<p>Fill in the app information as shown in the screenshot below. For URLs, replace <em>reviewnb.&lt;your-domain-name&gt;.com</em> with actual endpoint at which you’ll be hosting ReviewNB application.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Do not forget trailing slashes for the URLs.</p>
 </div>
-<a class="reference internal image-reference" href="../_images/gh_app_2_v2.png"><img alt="../_images/gh_app_2_v2.png" class="align-center" src="../_images/gh_app_2_v2.png" style="width: 468.59999999999997px; height: 613.1999999999999px;" /></a>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Do not forget to disable “Expire user authorization tokens” checkbox.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/gh_app_2_v3.png"><img alt="../_images/gh_app_2_v3.png" class="align-center" src="../_images/gh_app_2_v3.png" style="width: 515.4px; height: 966.5999999999999px;" /></a>
 </div>
 <div class="section" id="setup-permissions">
 <h2>Setup Permissions<a class="headerlink" href="#setup-permissions" title="Permalink to this headline">¶</a></h2>
