@@ -21,6 +21,9 @@ Prerequisite
 --------------------------
 * You need to decide the endpoint at which you'll be running ReviewNB. It's typically *reviewnb.<your-domain-name>.com*. Your application won't be running there as yet but you just need to know the endpoint you'll be using.
 
+.. warning::
+  For integrating with GitHub Enterprise Server (GHE), the top level domain for ReviewNB must be same as the top level GHE domain. E.g. If you’re GHE is running on `github.prod.company.com` then ReviewNB should also run at `.company.com` endpoint.
+
 Create New App
 ---------------------
 Any GitHub account can own the app but we recommend creating it under org account of the team who is going to maintain the ReviewNB installation.
@@ -35,12 +38,15 @@ Any GitHub account can own the app but we recommend creating it under org accoun
 
 Setup URLs and General Information
 ----------------------------------
-Fill in the general information as shown in the screenshot. For URLs, replace *reviewnb.<your-domain-name>.com* with actual endpoint at which you'll be hosting ReviewNB application.
+Fill in the app information as shown in the screenshot below. For URLs, replace *reviewnb.<your-domain-name>.com* with actual endpoint at which you'll be hosting ReviewNB application.
 
-.. note::
+.. warning::
   Do not forget trailing slashes for the URLs.
 
-.. image:: ../images/gh_app_2_v2.png
+.. warning::
+  Do not forget to disable "Expire user authorization tokens" checkbox.
+
+.. image:: ../images/gh_app_2_v3.png
    :scale: 60 %
    :align: center
 
