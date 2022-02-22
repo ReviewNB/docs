@@ -1,6 +1,6 @@
 .. |ReviewNB| raw:: html
 
-  <a href="https://reviewnb.com" target="_blank">ReviewNB</a>
+  <a href="https://www.reviewnb.com/?utm_source=reviewnb_docs" target="_blank">ReviewNB</a>
 
 .. |treon| raw:: html
 
@@ -52,7 +52,7 @@
 
 .. |our website| raw:: html
 
-  <a href="https://reviewnb.com" target="_blank">our website</a>
+  <a href="https://www.reviewnb.com/?utm_source=reviewnb_docs" target="_blank">our website</a>
 
 .. |verified by GitHub| raw:: html
 
