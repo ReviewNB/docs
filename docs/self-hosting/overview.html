@@ -185,21 +185,25 @@ Application communicates with your GitHub repositories &amp; offers a code revie
 <h2>PostgreSQL DB<a class="headerlink" href="#postgresql-db" title="Permalink to this headline">¶</a></h2>
 <p>The DB stores user identity, repository metadata and notebook comments. More specifically it contains,</p>
 <ul class="simple">
-<li><p>User’s GitHub information (their GitHub id, email, handle, avatar URL etc.)</p></li>
-<li><p>User’s access token to make API calls to GitHub. Stored with AES encryption. Access token is rotated with each logout -&gt; login.</p></li>
-<li><p>Metadata such as repository name, file name, pull request number, commit id etc. The actual repository contents/files/diffs are NOT stored in ReviewNB.</p></li>
+<li><p>User’s GitHub information (GitHub id, email, handle, avatar URL etc.)</p></li>
+<li><p>AES encrypted GitHub access token. Refreshed at each logout -&gt; login.</p></li>
 <li><p>Audit log of the User</p></li>
-<li><p>Comments made on notebooks (<a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">JDoc comments</a>).</p></li>
+<li><p>Comments made on notebooks (<a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">JDoc comments</a>)</p></li>
+<li><p>Repository metadata such as repository name, file name, pull request number, commit id etc.</p></li>
 </ul>
-<p>Please note, comments made on pull requests are NOT stored in ReviewNB DB, they’re directly posted to GitHub PR.</p>
+<p>Please note,</p>
+<ul class="simple">
+<li><p>The actual repository contents (files, diffs) are NOT stored in ReviewNB but fetched from GitHub on-demand</p></li>
+<li><p>Pull Request comments are NOT stored in ReviewNB, they’re directly posted to GitHub PR</p></li>
+</ul>
 </div>
 <div class="section" id="reviewnb-application">
 <h2>ReviewNB Application<a class="headerlink" href="#reviewnb-application" title="Permalink to this headline">¶</a></h2>
-<p>This is a web application that you run on your own servers. We distribute this as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>. It’s built with Django &amp; VueJS. It communicates with GitHub APIs to fetch relevant data &amp; to post comments on pull requests.</p>
+<p>This is a web application that you run on your own servers. We distribute this as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>. It communicates with GitHub APIs to fetch relevant data &amp; to post comments on pull requests.</p>
 </div>
 <div class="section" id="github-app">
 <h2>GitHub App<a class="headerlink" href="#github-app" title="Permalink to this headline">¶</a></h2>
-<p>This is a GitHub App that you create and configure on GitHub cloud or your own GitHub Enterprise instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has &amp; so on. See <a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a> for more details.</p>
+<p>This is a GitHub App that you create and configure on GitHub cloud or on your own GitHub Enterprise instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has &amp; so on. See <a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a> for more details.</p>
 </div>
 </div>
 <div class="section" id="faq">

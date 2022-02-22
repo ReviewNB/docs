@@ -17,21 +17,25 @@ PostgreSQL DB
 
 The DB stores user identity, repository metadata and notebook comments. More specifically it contains,
 
-- User's GitHub information (their GitHub id, email, handle, avatar URL etc.)
-- User's access token to make API calls to GitHub. Stored with AES encryption. Access token is rotated with each logout -> login.
-- Metadata such as repository name, file name, pull request number, commit id etc. The actual repository contents/files/diffs are NOT stored in ReviewNB.
+- User's GitHub information (GitHub id, email, handle, avatar URL etc.)
+- AES encrypted GitHub access token. Refreshed at each logout -> login.
 - Audit log of the User
-- Comments made on notebooks (|JDoc comments|).
+- Comments made on notebooks (|JDoc comments|)
+- Repository metadata such as repository name, file name, pull request number, commit id etc.
 
-Please note, comments made on pull requests are NOT stored in ReviewNB DB, they're directly posted to GitHub PR.
+
+Please note,
+
+- The actual repository contents (files, diffs) are NOT stored in ReviewNB but fetched from GitHub on-demand
+- Pull Request comments are NOT stored in ReviewNB, they're directly posted to GitHub PR
 
 ReviewNB Application
---------------
-This is a web application that you run on your own servers. We distribute this as a docker image via |Quay|. It's built with Django & VueJS. It communicates with GitHub APIs to fetch relevant data & to post comments on pull requests.
+---------------------
+This is a web application that you run on your own servers. We distribute this as a docker image via |Quay|. It communicates with GitHub APIs to fetch relevant data & to post comments on pull requests.
 
 GitHub App
 --------------
-This is a GitHub App that you create and configure on GitHub cloud or your own GitHub Enterprise instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has & so on. See :ref:`create_github_app` for more details.
+This is a GitHub App that you create and configure on GitHub cloud or on your own GitHub Enterprise instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has & so on. See :ref:`create_github_app` for more details.
 
 =====================
 FAQ
