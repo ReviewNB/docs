@@ -174,10 +174,10 @@
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>This is an architectural overview of our self hosted offering. ReviewNB application is distributed as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>.
-The application communicates with your GitHub repositories &amp; offers a review workflow for your Jupyter notebooks stored on GitHub.</p>
+<p>This is an architectural overview of ReviewNB’s self hosted offering. The application is distributed as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>.
+Application communicates with your GitHub repositories &amp; offers a code review workflow for your Jupyter notebooks stored in GitHub repositories.</p>
 <img alt="../_images/overview_dig.png" class="align-center" src="../_images/overview_dig.png" />
-<p>There are 3 main components to setup -</p>
+<p>There are 3 main components -</p>
 <ul class="simple">
 <li><p>PostgreSQL DB (stores user identity, GitHub metadata, notebook comments)</p></li>
 <li><p>Actual application (distributed as a docker image)</p></li>
@@ -186,31 +186,18 @@ The application communicates with your GitHub repositories &amp; offers a review
 <p>In a self hosted setup you create &amp; fully control all the 3 components above. Here’s our <a class="reference internal" href="docker.html#docker-installation"><span class="std std-ref">step-by-step installation guide</span></a>.</p>
 <div class="section" id="faq">
 <h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
-<dl class="simple">
+<dl>
 <dt>Does ReviewNB work with GitHub Enterprise?</dt><dd><p>Yes. Our self hosted installation works with GitHub Enterprise &amp; GitHub.com both.</p>
 </dd>
 <dt>How long does it take to setup a self hosted ReviewNB instance?</dt><dd><p>It takes about ~2 hours to set everything up.</p>
 </dd>
-<dt>How much effort is required for maintainance?</dt><dd><ul class="simple">
-<li><p>There’s no maintainance required of you apart from periodic updates.</p></li>
-<li><p>We notify you when periodic update is released. Update process shouldn’t take more than 2 minutes (you simply pull docker image with the new tag)</p></li>
+<dt>How much effort is required for maintenance?</dt><dd><ul class="simple">
+<li><p>There’s no maintenance required of you apart from periodic updates.</p></li>
+<li><p>We notify you when an update is available. Update process shouldn’t take more than a few minutes (you simply pull docker image with the new tag)</p></li>
 </ul>
 </dd>
 <dt>Does the application makes any call back to “home”?</dt><dd><p>No. The application does <strong>not</strong> make any calls back to ReviewNB infrastructure. Even the licensing information is pre-baked into your docker image.</p>
 </dd>
-<dt>How does licensing work?</dt><dd><p>We charge base fee + per user fee each month. This includes licensing, installation, upgrades &amp; support. It’s a pay-as-you-go model, you can cancel anytime.</p>
-</dd>
-</dl>
-<p><strong>Why is self hosted offering more expensive than the hosted offering?</strong></p>
-<blockquote>
-<div><ul class="simple">
-<li><p>For self hosted ReviewNB, we work individually with each company to help you with setup, agreement, installation, maintenance, periodic updates, support &amp; anything else required to make notebook reviews successful in your environment.</p></li>
-<li><p>We maintain a separate docker repository for each self hosted customer where they receive their own updates.</p></li>
-<li><p>We offer real time support over slack or phone for any critical issues.</p></li>
-<li><p>We offer indemnity protections to on-prem customers (details in the contract), nothing like this is offered for hosted customers.</p></li>
-</ul>
-</div></blockquote>
-<dl>
 <dt>How secure is self hosted ReviewNB?</dt><dd><p>Most important thing for us &amp; all our self hosted customers is security &amp; privacy of their data/notebooks. With that in mind, here’s our security design overview -</p>
 <blockquote>
 <div><ul class="simple">
@@ -223,6 +210,7 @@ The application communicates with your GitHub repositories &amp; offers a review
 <li><p>Our app has been <a href="https://docs.github.com/en/developers/github-marketplace/requirements-for-listing-an-app#security" target="_blank">verified by GitHub</a> team &amp; approved for sell on GitHub marketplace. You can see <strong>Verified by GitHub</strong> badge on our <a href="https://github.com/marketplace/review-notebook-app" target="_blank">marketplace listing</a>.</p></li>
 </ul>
 </div></blockquote>
+<p>Our self hosted offering has been reviewed, approved &amp; currently being used by organizations such as AirBnB, Lyft, Deloitte, Royal Bank of Canada, NASA JPL &amp; many more.</p>
 </dd>
 </dl>
 </div>

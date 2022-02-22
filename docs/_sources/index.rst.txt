@@ -2,7 +2,9 @@
 
 Welcome to ReviewNB's documentation!
 ====================================
-Have trouble collaborating on Jupyter Notebooks? **Join 500+ organizations like Amazon, Microsoft, Tensorflow, fast.ai** in using |ReviewNB| for notebook code reviews.
+Have trouble collaborating on Jupyter Notebooks?
+
+Join 500+ organizations like **Amazon, Microsoft, AirBnB, Lyft, Deloitte, Facebook, NASA** in using |ReviewNB| for notebook code reviews.
 ReviewNB provides a complete code review workflow for notebooks.
 
   * |Visual diff| for every GitHub commit or Pull Request containing Notebooks
