@@ -31,7 +31,9 @@ Please note,
 
 ReviewNB Application
 ---------------------
-This is a web application that you run on your own servers. We distribute this as a docker image via |Quay|. It communicates with GitHub APIs to fetch relevant data & to post comments on pull requests.
+This is a web application that you run on your own servers. We distribute this as a docker image via |Quay|. It communicates with GitHub APIs to fetch relevant data & to post comments on pull requests. The application does not make any calls back to ReviewNB infrastructure. Even the licensing information is pre-baked into the docker image.
+
+
 
 GitHub App
 --------------
