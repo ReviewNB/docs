@@ -81,3 +81,7 @@
 .. |Team conversations| raw:: html
 
   <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">Team conversations</a>
+
+.. |JDoc comments| raw:: html
+
+  <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">JDoc comments</a>
