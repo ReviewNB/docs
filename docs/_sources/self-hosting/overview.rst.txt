@@ -1,24 +1,41 @@
 .. include:: ../globals.rst
 
+=====================
 Overview
 =====================
 
 This is an architectural overview of ReviewNB's self hosted offering. The application is distributed as a docker image via |Quay|.
-Application communicates with your GitHub repositories & offers a code review workflow for your Jupyter notebooks stored in GitHub repositories.
+Application communicates with your GitHub repositories & offers a code review workflow for Jupyter notebooks on GitHub.
 
 .. image:: ../images/overview_dig.png
    :align: center
 
-There are 3 main components -
+There are 3 main components - *PostgreSQL DB, ReviewNB Application* & *GitHub App*. Details of each are present below. In a self hosted setup you create & fully control all three components. Here's a :ref:`step-by-step installation guide <docker_installation>` if you want to dig into the details.
 
-- PostgreSQL DB (stores user identity, GitHub metadata, notebook comments)
-- Actual application (distributed as a docker image)
-- GitHub App (to identify the client making GitHub API calls)
+PostgreSQL DB
+--------------
 
-In a self hosted setup you create & fully control all the 3 components above. Here's our :ref:`step-by-step installation guide <docker_installation>`.
+The DB stores user identity, repository metadata and notebook comments. More specifically it contains,
 
+- User's GitHub information (their GitHub id, email, handle, avatar URL etc.)
+- User's access token to make API calls to GitHub. Stored with AES encryption. Access token is rotated with each logout -> login.
+- Metadata such as repository name, file name, pull request number, commit id etc. The actual repository contents/files/diffs are NOT stored in ReviewNB.
+- Audit log of the User
+- Comments made on notebooks (|JDoc comments|).
+
+Please note, comments made on pull requests are NOT stored in ReviewNB DB, they're directly posted to GitHub PR.
+
+ReviewNB Application
+--------------
+This is a web application that you run on your own servers. We distribute this as a docker image via |Quay|. It's built with Django & VueJS. It communicates with GitHub APIs to fetch relevant data & to post comments on pull requests.
+
+GitHub App
+--------------
+This is a GitHub App that you create and configure on GitHub cloud or your own GitHub Enterprise instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has & so on. See :ref:`create_github_app` for more details.
+
+=====================
 FAQ
-----------------
+=====================
 
 Does ReviewNB work with GitHub Enterprise?
   Yes. Our self hosted installation works with GitHub Enterprise & GitHub.com both.

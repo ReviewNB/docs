@@ -93,9 +93,12 @@
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#faq">FAQ</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#postgresql-db">PostgreSQL DB</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reviewnb-application">ReviewNB Application</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#github-app">GitHub App</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#faq">FAQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
@@ -175,17 +178,32 @@
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
 <p>This is an architectural overview of ReviewNB’s self hosted offering. The application is distributed as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>.
-Application communicates with your GitHub repositories &amp; offers a code review workflow for your Jupyter notebooks stored in GitHub repositories.</p>
+Application communicates with your GitHub repositories &amp; offers a code review workflow for Jupyter notebooks on GitHub.</p>
 <img alt="../_images/overview_dig.png" class="align-center" src="../_images/overview_dig.png" />
-<p>There are 3 main components -</p>
+<p>There are 3 main components - <em>PostgreSQL DB, ReviewNB Application</em> &amp; <em>GitHub App</em>. Details of each are present below. In a self hosted setup you create &amp; fully control all three components. Here’s a <a class="reference internal" href="docker.html#docker-installation"><span class="std std-ref">step-by-step installation guide</span></a> if you want to dig into the details.</p>
+<div class="section" id="postgresql-db">
+<h2>PostgreSQL DB<a class="headerlink" href="#postgresql-db" title="Permalink to this headline">¶</a></h2>
+<p>The DB stores user identity, repository metadata and notebook comments. More specifically it contains,</p>
 <ul class="simple">
-<li><p>PostgreSQL DB (stores user identity, GitHub metadata, notebook comments)</p></li>
-<li><p>Actual application (distributed as a docker image)</p></li>
-<li><p>GitHub App (to identify the client making GitHub API calls)</p></li>
+<li><p>User’s GitHub information (their GitHub id, email, handle, avatar URL etc.)</p></li>
+<li><p>User’s access token to make API calls to GitHub. Stored with AES encryption. Access token is rotated with each logout -&gt; login.</p></li>
+<li><p>Metadata such as repository name, file name, pull request number, commit id etc. The actual repository contents/files/diffs are NOT stored in ReviewNB.</p></li>
+<li><p>Audit log of the User</p></li>
+<li><p>Comments made on notebooks (<a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">JDoc comments</a>).</p></li>
 </ul>
-<p>In a self hosted setup you create &amp; fully control all the 3 components above. Here’s our <a class="reference internal" href="docker.html#docker-installation"><span class="std std-ref">step-by-step installation guide</span></a>.</p>
+<p>Please note, comments made on pull requests are NOT stored in ReviewNB DB, they’re directly posted to GitHub PR.</p>
+</div>
+<div class="section" id="reviewnb-application">
+<h2>ReviewNB Application<a class="headerlink" href="#reviewnb-application" title="Permalink to this headline">¶</a></h2>
+<p>This is a web application that you run on your own servers. We distribute this as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>. It’s built with Django &amp; VueJS. It communicates with GitHub APIs to fetch relevant data &amp; to post comments on pull requests.</p>
+</div>
+<div class="section" id="github-app">
+<h2>GitHub App<a class="headerlink" href="#github-app" title="Permalink to this headline">¶</a></h2>
+<p>This is a GitHub App that you create and configure on GitHub cloud or your own GitHub Enterprise instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has &amp; so on. See <a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a> for more details.</p>
+</div>
+</div>
 <div class="section" id="faq">
-<h2>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h2>
+<h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
 <dl>
 <dt>Does ReviewNB work with GitHub Enterprise?</dt><dd><p>Yes. Our self hosted installation works with GitHub Enterprise &amp; GitHub.com both.</p>
 </dd>
@@ -213,7 +231,6 @@ Application communicates with your GitHub repositories &amp; offers a code revie
 <p>Our self hosted offering has been reviewed, approved &amp; currently being used by organizations such as AirBnB, Lyft, Deloitte, Royal Bank of Canada, NASA JPL &amp; many more.</p>
 </dd>
 </dl>
-</div>
 </div>
 
 
