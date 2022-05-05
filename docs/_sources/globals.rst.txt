@@ -2,6 +2,10 @@
 
   <a href="https://www.reviewnb.com/?utm_source=reviewnb_docs" target="_blank">ReviewNB</a>
 
+.. |1000+ organizations| raw:: html
+
+  <a href="https://www.reviewnb.com/?utm_source=reviewnb_docs#customers" target="_blank">1000+ organizations</a>
+
 .. |treon| raw:: html
 
   <a href="https://github.com/ReviewNB/treon" target="_blank">treon</a>
