@@ -226,6 +226,7 @@ Application communicates with your GitHub repositories &amp; offers a code revie
 <li><p>The application does not make any calls back to ReviewNB infrastructure. All the data is stored securely under your own control.</p></li>
 <li><p>You can (and should) restrict the outbound access of ReviewNB service only to Github.com &amp; your own SMTP server (except for fetching data from GitHub &amp; sending emails to users, the application does not need to talk to outside world)</p></li>
 <li><p>You can (and should) restrict the inbound access to your own corporate VPN. Nobody outside your company network can access the ReviewNB application.</p></li>
+<li><p>If you’re using ReviewNB with GitHub Cloud then you also need to permit inbound access from GitHub for webhook delivery to <cite>/gh/webhook/</cite> endpoint. You can find a list of <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses" target="_blank">GitHub IP addresses</a> here.</p></li>
 <li><p>You can (and should) <strong>only</strong> allow inbound access to PostgresDB from ReviewNB application.</p></li>
 <li><p>GitHub API key for the user is stored in DB with AES encryption.</p></li>
 <li><p>Every time a user logs out and logs back in we create a new GitHub API key (as part of the GitHub OAuth login flow), effectively making the old keys defunct.</p></li>

@@ -89,3 +89,7 @@
 .. |JDoc comments| raw:: html
 
   <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">JDoc comments</a>
+
+.. |GitHub IP addresses| raw:: html
+
+  <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses" target="_blank">GitHub IP addresses</a>
