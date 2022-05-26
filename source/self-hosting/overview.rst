@@ -62,6 +62,7 @@ How secure is self hosted ReviewNB?
     - The application does not make any calls back to ReviewNB infrastructure. All the data is stored securely under your own control.
     - You can (and should) restrict the outbound access of ReviewNB service only to Github.com & your own SMTP server (except for fetching data from GitHub & sending emails to users, the application does not need to talk to outside world)
     - You can (and should) restrict the inbound access to your own corporate VPN. Nobody outside your company network can access the ReviewNB application.
+    - If you're using ReviewNB with GitHub Cloud then you also need to permit inbound access from GitHub for webhook delivery to `/gh/webhook/` endpoint. You can find a list of |GitHub IP addresses| here.
     - You can (and should) **only** allow inbound access to PostgresDB from ReviewNB application.
     - GitHub API key for the user is stored in DB with AES encryption.
     - Every time a user logs out and logs back in we create a new GitHub API key (as part of the GitHub OAuth login flow), effectively making the old keys defunct.
