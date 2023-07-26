@@ -2,9 +2,9 @@
 
   <a href="https://www.reviewnb.com/?utm_source=reviewnb_docs" target="_blank">ReviewNB</a>
 
-.. |1000+ organizations| raw:: html
+.. |thousands of organizations| raw:: html
 
-  <a href="https://www.reviewnb.com/?utm_source=reviewnb_docs#customers" target="_blank">1000+ organizations</a>
+  <a href="https://www.reviewnb.com/?utm_source=reviewnb_docs#customers" target="_blank">thousands of organizations</a>
 
 .. |treon| raw:: html
 

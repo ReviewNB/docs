@@ -4,8 +4,12 @@
 
 Update On-Prem ReviewNB
 ========================
-We roll out fixes & new features all the time so it's important to keep your ReviewNB updated. We notify you via email every time a new update is available.
-Installing an update is as simple as pulling and running a new docker image. Here are the steps,
+
+We release fixes, new features & license updates periodically so it's important to keep your ReviewNB instance updated. We notify you via email every time a new update is available.
+Installing an update is as simple as pulling and running a new docker image. The steps are described below.
+
+.. note::
+  The instructions below are for a single EC2 instance (or similar) installations. If you're using container orchestration platforms (such as Kubernetes, AWS ECS etc.), please adapt these instructions to suit your platform. Essentially, you just need to update the docker image tag to the new version.
 
 Pull new docker image
 -------------------------------------
