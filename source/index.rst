@@ -4,7 +4,7 @@ Welcome to ReviewNB's documentation!
 ====================================
 Have trouble collaborating on Jupyter Notebooks?
 
-Join |1000+ organizations| like Microsoft, AirBnB, NASA, Lyft, Deloitte, AWS, Facebook, Tensorflow using ReviewNB to streamline Data Science collaboration.
+Join |thousands of organizations| like *Microsoft, Meta, Lyft, AirBnB, AWS, Affirm, AMD, NASA JPL* & many more using ReviewNB to streamline Data Science collaboration.
 
 |ReviewNB| offers code review workflow for Jupyter Notebooks that's fully integrated with GitHub & Bitbucket repositories.
 
