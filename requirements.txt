@@ -30,5 +30,5 @@ sphinxcontrib-qthelp==1.0.3
 sphinxcontrib-serializinghtml==1.1.4
 sphinxemoji==0.1.6
 tornado==6.0.4
-urllib3==1.25.9
+urllib3==1.26.5
 watchdog==0.10.3
