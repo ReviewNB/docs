@@ -1,0 +1,5 @@
+/* Testimonials (.. pull-quote:: in testimonials.rst): italicise the quote,
+   not the "-- Name" attribution line. */
+blockquote.pull-quote p:not(.attribution) {
+    font-style: italic;
+}
