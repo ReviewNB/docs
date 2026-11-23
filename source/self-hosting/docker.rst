@@ -109,6 +109,8 @@ Source for environment variables,
 | ``EMAIL_USE_TLS`` (optional)  | Set this to "0" if your SMTP server does not support TLS protocol.              |
 +-------------------------------+---------------------------------------------------------------------------------+
 
+Optional, for GitHub.com only: ``ENFORCE_EMAIL_DOMAIN_CHECK`` & ``ALLOWED_EMAIL_DOMAINS``, see :ref:`restrict_login`.
+
 Verify Installation
 --------------------------
 Visit the endpoint where container is running (endpoint could even be an ip address for the sake of verification). You should see the login page without any errors on it.
@@ -171,3 +173,28 @@ Optional Tips
 Some handy tips for ReviewNB users,
 
 - All notebook, repository, commit, and PR URLs on ReviewNB intentionally have the same URL structure as that of GitHub. So you can use |dynamic bookmarks| to quickly jump back & forth between ReviewNB & GitHub.
+
+.. _restrict_login:
+
+Restrict Login to Your Organization (GitHub.com only)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+  This section only applies if you are connecting your self-hosted ReviewNB instance to your organization on GitHub.com. If you are using GitHub Enterprise Server (GHE), you can skip this section.
+
+If your ReviewNB instance is publicly accessible and connected to GitHub.com, then by default anyone with a GitHub.com account can log in. They only see what their own GitHub account can already access, but they do take up a seat.
+
+We recommend keeping ReviewNB on your internal network. Otherwise, set these environment variables to restrict login,
+
+  .. code-block:: console
+
+    --env ENFORCE_EMAIL_DOMAIN_CHECK="1" \
+    --env ALLOWED_EMAIL_DOMAINS="your-company.com" \
+
+Then only users with a **verified** email address on your company's domain on their GitHub account can log in. Everyone else sees an "Access Restricted" page that explains how to add & verify their work email on GitHub (`GitHub email settings <https://github.com/settings/emails>`_).
+
+Good to know,
+
+- ``ALLOWED_EMAIL_DOMAINS`` takes a comma separated list (e.g. ``"your-company.com, subsidiary.com"``). Subdomains (e.g. ``eng.your-company.com``) are allowed too. Add a domain here to let in contractors or guests who don't have a company email address.
+- The check runs at login. Users who are already logged in stay logged in until their session expires.
+- To turn the check off, set ``ENFORCE_EMAIL_DOMAIN_CHECK=0`` and restart the container.

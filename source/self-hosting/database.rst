@@ -7,7 +7,7 @@ Create Database
 
 ReviewNB requires a PostgreSQL database to store user identity and other essential data. DB instance requirements are fairly low. Here's the minimum spec we need,
 
-* PostgreSQL Version - 9.5 and above
+* PostgreSQL Version - 14 and above
 * Memory - 1GB minimum
 * Disk Space - 16GB minimum
 
