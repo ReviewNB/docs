@@ -15,4 +15,3 @@ Explore the sections below to get an overview. If you are interested in self-hos
    gh_app
    bot_comments
    update
-   migrate-v1

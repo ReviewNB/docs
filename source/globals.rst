@@ -74,10 +74,6 @@
 
   <a href="https://medium.com/@amitrathi/dynamic-bookmarks-for-reviewnb-52a7db356d4" target="_blank">dynamic bookmarks</a>
 
-.. |new exciting features| raw:: html
-
-  <a href="https://blog.reviewnb.com/commenting-for-jupyter/" target="_blank">new exciting features</a>
-
 .. |public repository| raw:: html
 
   <a href="https://github.com/reviewNB/support/issues" target="_blank">public repository</a>
