@@ -14,7 +14,7 @@ You can use deployment tool of your choice to run the docker image. Below, we sh
 
 Hardware
 --------------------------
-ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 8GB of memory. Go higher on memory if your notebooks tend to be larger or you are expecting lot of concurrent users.
+ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 8GB of memory. Go higher on memory if your notebooks tend to be larger or you are expecting a lot of concurrent users.
 
 Prerequisite
 --------------------------
@@ -49,7 +49,7 @@ Run the image
 
 .. _run_docker_image:
 
-* Run the docker image. Substitue all `-`-env variables with your own values as explained in the table below this command.
+* Run the docker image. Substitute all `-`-env variables with your own values as explained in the table below this command.
 
   .. code-block:: console
 
@@ -87,7 +87,7 @@ Source for environment variables,
 |                               | |                                                                               |
 |                               | | If you are using ReviewNB with self hosted GitHub Enterprise (GHE) then       |
 |                               | | ``REVIEWNB_BASE_URL`` should have same top level domain as ``GITHUB_BASE_URL``|
-|                               | | E.g. If you're GHE is running on `github.prod.company.com` then               |
+|                               | | E.g. If your GHE is running on `github.prod.company.com` then                 |
 |                               | | ``REVIEWNB_BASE_URL`` should also end with `.company.com`                     |
 +-------------------------------+---------------------------------------------------------------------------------+
 | ``DB_URL``                    | :ref:`create_database`                                                          |
@@ -114,7 +114,7 @@ Optional, for GitHub.com only: ``ENFORCE_EMAIL_DOMAIN_CHECK`` & ``ALLOWED_EMAIL_
 Verify Installation
 --------------------------
 Visit the endpoint where container is running (endpoint could even be an ip address for the sake of verification). You should see the login page without any errors on it.
-Do not login just yet, you can login after adding HTTPS suppport (last step below).
+Do not login just yet, you can login after adding HTTPS support (last step below).
 
 .. image:: ../images/login_page_2.png
    :align: center
@@ -129,8 +129,8 @@ Domain Name & HTTPS Support
 ----------------------------
 At this point, the application is simply running on port 80 and 443 on an instance. You should,
 
-- Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
-- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. *reviewnb.xyz-company.com*)
+- Add a load balancer with HTTPS support in front of the instance. The exact steps depend on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
+- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remember endpoint (e.g. *reviewnb.xyz-company.com*)
 
 Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
 
@@ -195,6 +195,6 @@ Then only users with a **verified** email address on your company's domain on th
 
 Good to know,
 
-- ``ALLOWED_EMAIL_DOMAINS`` takes a comma separated list (e.g. ``"your-company.com, subsidiary.com"``). Subdomains (e.g. ``eng.your-company.com``) are allowed too. Add a domain here to let in contractors or guests who don't have a company email address.
+- ``ALLOWED_EMAIL_DOMAINS`` takes a comma-separated list (e.g. ``"your-company.com, subsidiary.com"``). Subdomains (e.g. ``eng.your-company.com``) are allowed too. Add a domain here to let in contractors or guests who don't have a company email address.
 - The check runs at login. Users who are already logged in stay logged in until their session expires.
 - To turn the check off, set ``ENFORCE_EMAIL_DOMAIN_CHECK=0`` and restart the container.

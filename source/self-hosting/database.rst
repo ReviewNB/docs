@@ -19,11 +19,11 @@ Once your DB instance is running, connect to it via *psql* and create a new data
 
   .. code-block:: console
 
-    $ psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
+    $ psql postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
 
     postgres=> CREATE DATABASE rnb;
 
-Note down the database connection string in the followign format. DB_NAME is the name of our newly created database. We'll need to supply the following string as *DB_URL* environment variable on ReviewNB container.
+Note down the database connection string in the following format. DB_NAME is the name of our newly created database. We'll need to supply the following string as *DB_URL* environment variable on ReviewNB container.
 
 .. code-block:: console
 

@@ -50,9 +50,9 @@
 
   <a href="https://github.com/marketplace/review-notebook-app" target="_blank">marketplace listing</a>
 
-.. |install from GitHub matketplace| raw:: html
+.. |install from GitHub marketplace| raw:: html
 
-  <a href="https://github.com/marketplace/review-notebook-app" target="_blank">install from GitHub matketplace</a>
+  <a href="https://github.com/marketplace/review-notebook-app" target="_blank">install from GitHub marketplace</a>
 
 .. |our website| raw:: html
 

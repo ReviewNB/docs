@@ -21,7 +21,7 @@ Pull new docker image
 
     $ docker login -u="<username>" -p="<password>" quay.io
 
-* Pull the docker image. Image name & tag would be availble in the upgrade email.
+* Pull the docker image. Image name & tag would be available in the upgrade email.
 
   .. code-block:: console
 

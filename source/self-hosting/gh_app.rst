@@ -4,7 +4,7 @@
 
 Create GitHub App
 =================
-GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via Oauth2 & let user select repositories that ReviewNB should have access to.
+GitHub application forms the bridge between ReviewNB and GitHub. It enables user authentication via OAuth2 & lets users select repositories that ReviewNB should have access to.
 
 In this section, we'll create a GitHub app for your self hosted ReviewNB installation. By the end, we should have following values noted down:
 
@@ -22,7 +22,7 @@ Prerequisite
 * You need to decide the endpoint at which you'll be running ReviewNB. It's typically *reviewnb.<your-domain-name>.com*. Your application won't be running there as yet but you just need to know the endpoint you'll be using.
 
 .. warning::
-  For integrating with GitHub Enterprise Server (GHE), the top level domain for ReviewNB must be same as the top level GHE domain. E.g. If you’re GHE is running on `github.prod.company.com` then ReviewNB should also run at `.company.com` endpoint.
+  For integrating with GitHub Enterprise Server (GHE), the top level domain for ReviewNB must be same as the top level GHE domain. E.g. If your GHE is running on `github.prod.company.com` then ReviewNB should also run at `.company.com` endpoint.
 
 Create New App
 ---------------------
@@ -109,7 +109,7 @@ Upload Logo
 
 Get App Config
 -----------------------------
-On your newly created app page, you can find Client ID, Client Secret, App ID, and App URL. Please note down these fields along with the private key generated in the above step. We'll need to plug them as environment vaiables on the docker container.
+On your newly created app page, you can find Client ID, Client Secret, App ID, and App URL. Please note down these fields along with the private key generated in the above step. We'll need to plug them as environment variables on the docker container.
 
 .. image:: ../images/gh_app_6.1.png
    :scale: 80 %
@@ -130,7 +130,7 @@ Notice the regex replacement I'm using at the bottom. If your editor doesn't sup
    :scale: 80 %
    :align: center
 
-After replacement, it should become a single line (as shown below) with *\\n* between each of the previous line. If you're replacing by hand, notice there's a *\\n* at the end of last line as well. This entire single line will be your Private Key (*GITHUB_APP_PEM*).
+After replacement, it should become a single line (as shown below) with *\\n* between each of the previous lines. If you're replacing by hand, notice there's a *\\n* at the end of last line as well. This entire single line will be your Private Key (*GITHUB_APP_PEM*).
 
 .. image:: ../images/after_replacement.png
    :scale: 80 %
