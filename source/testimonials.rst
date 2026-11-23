@@ -10,7 +10,7 @@ Testimonials
     -- Billy Lamberta, TensorFlow docs & tech writer at Google
 
 .. image:: ./images/t21.png
-   :scale: 45 %
+   :width: 550px
    :align: center
    :alt: Testimonial card from Billy Lamberta, TensorFlow docs & tech writer at Google
 
@@ -21,7 +21,7 @@ Testimonials
     -- Sylvain Gugger, Research scientist at fast.ai
 
 .. image:: ./images/t22.png
-   :scale: 45 %
+   :width: 550px
    :align: center
    :alt: Testimonial card from Sylvain Gugger, Research scientist at fast.ai
 
@@ -32,7 +32,7 @@ Testimonials
     -- Miguel González-Fierro, Data Scientist at Microsoft
 
 .. image:: ./images/t23.png
-   :scale: 45 %
+   :width: 550px
    :align: center
    :alt: Testimonial card from Miguel González-Fierro, Data Scientist at Microsoft
 
@@ -42,8 +42,8 @@ Testimonials
 
     -- Rohit Singh, Director of Esri R&D Center
 
-.. image:: ./images/t24_v2.png
-   :scale: 84 %
+.. image:: ./images/t24_v3.png
+   :width: 550px
    :align: center
    :alt: Testimonial card from Rohit Singh, Director of Esri R&D Center
 
