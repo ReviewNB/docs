@@ -6,6 +6,8 @@ if ! git diff-index --quiet HEAD --; then
   exit 1
 fi
 
+source "$HOME/.virtualenvs/docs2/bin/activate"
+
 # Fresh build into a temp dir, so stale pages from old builds
 # (e.g. in source/_build/html used by sphinx-autobuild) never get deployed.
 BUILD_DIR=$(mktemp -d)
