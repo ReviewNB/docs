@@ -2,8 +2,8 @@
 
 .. _update:
 
-Update On-Prem ReviewNB
-========================
+Update Self-Hosted ReviewNB
+============================
 
 We release fixes, new features & license updates periodically so it's important to keep your ReviewNB instance updated. We notify you via email every time a new update is available.
 Installing an update is as simple as pulling and running a new docker image. The steps are described below.

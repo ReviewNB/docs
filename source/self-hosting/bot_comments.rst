@@ -24,6 +24,6 @@ How to Verify
 If you are not seeing bot comments there's likely something wrong with GitHub webhook delivery. You can take following troubleshooting steps,
 
 - Head over to your newly created GitHub App -> Advanced Tab. You can see webhook delivery failure reasons.
-- If all webhook deliveries are failing with 'Service Timeout' or similar errors, please make sure that your GitHub Enterprise instance can make outbound calls to your on-prem ReviewNB.
+- If all webhook deliveries are failing with 'Service Timeout' or similar errors, please make sure that your GitHub Enterprise Server instance can make outbound calls to your self-hosted ReviewNB.
 - Look at container logs (``docker logs <container-id>``) to see if logs are complaining about something.
 - If still not resolved, write to us at `support@reviewnb.com`

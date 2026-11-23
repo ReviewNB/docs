@@ -5,7 +5,7 @@
 Installation
 =====================
 
-ReviewNB application is distributed as a docker image via |Quay|. Once your on-prem request is approved, we create a private docker image for your use & grant you access to it.
+ReviewNB application is distributed as a docker image via |Quay|. Once your self-hosting request is approved, we create a private docker image for your use & grant you access to it.
 
 You can use deployment tool of your choice to run the docker image. Below, we show a simple way to run the docker image from command line.
 
@@ -22,13 +22,13 @@ Prerequisite
 * Credentials to pull your private docker image from Quay. You should've received it in registration email. If not, write to us at `support@reviewnb.com`
 * :ref:`create_github_app`
 * :ref:`create_database`
-* Following SMTP server credentials are required. This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation. You can use the same SMTP settings that you are using with GitHub Enterprise or any other SMTP server you might have.
+* Following SMTP server credentials are required. This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation. You can use the same SMTP settings that you are using with GitHub Enterprise Server or any other SMTP server you might have.
 
    * *EMAIL_HOST*: URL of SMTP server
    * *EMAIL_PORT*: Port number of SMTP server (defaults to port 587 if none specified)
    * *EMAIL_HOST_USER*: Username to authenticate with SMTP server
    * *EMAIL_HOST_PASSWORD*: Password to authenticate with SMTP server
-   * *SENDER_EMAIL_ADDRESS*: Email address of the sender e.g. *no-reply@<your-domain>.com*
+   * *SENDER_EMAIL_ADDRESS*: Email address of the sender e.g. *no-reply@your-company.com*
 
 
 .. _pull_and_run_docker_image:
@@ -59,15 +59,15 @@ Run the image
     --env GITHUB_APP_ID="1" \
     --env GITHUB_CLIENT_ID="Iv1.5a6123881f61e84c" \
     --env GITHUB_CLIENT_SECRET="2c40dbe73d8rdg3b7c37fbbab5d376b174b53deb" \
-    --env GITHUB_BASE_URL="https://github.corp.your-company-domain.com" \
-    --env GITHUB_APP_URL="https://ghes.nurtch.com/github-apps/reviewnb-for-nurtch" \
-    --env REVIEWNB_BASE_URL="https://reviewnb.nurtch.com" \
+    --env GITHUB_BASE_URL="https://github.your-company.com" \
+    --env GITHUB_APP_URL="https://github.your-company.com/github-apps/reviewnb-for-your-company" \
+    --env REVIEWNB_BASE_URL="https://reviewnb.your-company.com" \
     --env DB_URL="postgres://username:pwd@host:5432/database" \
     --env EMAIL_HOST="<your-smtp-server-url>" \
     --env EMAIL_PORT="<your-smtp-server-port>" \
     --env EMAIL_HOST_USER="<your-smtp-server-username>" \
     --env EMAIL_HOST_PASSWORD="<your-smtp-server-password>" \
-    --env SENDER_EMAIL_ADDRESS="no-reply@<your-domain>.com" \
+    --env SENDER_EMAIL_ADDRESS="no-reply@your-company.com" \
     --env TEST_EMAIL_ADDRESS="<email-address-on-which-test-email-will-be-sent>" \
     --env GITHUB_APP_PEM="-----BEGIN RSA PRIVATE KEY-----\nMI<really-long-pem-key>Z9huMC\n-----END RSA PRIVATE KEY-----\n" \
     quay.io/reviewnb/<your-company-name>:<reviewnb-version>
@@ -79,16 +79,16 @@ Source for environment variables,
 +-------------------------------+---------------------------------------------------------------------------------+
 | `-`-env variables             | Source                                                                          |
 +===============================+=================================================================================+
-| ``GITHUB_BASE_URL``           | | Endpoint at which your company's GitHub enterprise instance is running        |
+| ``GITHUB_BASE_URL``           | | Endpoint at which your company's GitHub Enterprise Server instance is running |
 |                               | |                                                                               |
-|                               | | If you are using ReviewNB with github.com then use ``https://github.com``     |
+|                               | | If you are using ReviewNB with GitHub.com then use ``https://github.com``     |
 +-------------------------------+---------------------------------------------------------------------------------+
-| ``REVIEWNB_BASE_URL``         | | Endpoint at which your self hosted ReviewNB will be running                   |
+| ``REVIEWNB_BASE_URL``         | | Endpoint at which your self-hosted ReviewNB will be running                   |
 |                               | |                                                                               |
-|                               | | If you are using ReviewNB with self hosted GitHub Enterprise (GHE) then       |
+|                               | | If you are using ReviewNB with GitHub Enterprise Server (GHE) then            |
 |                               | | ``REVIEWNB_BASE_URL`` should have same top level domain as ``GITHUB_BASE_URL``|
-|                               | | E.g. If your GHE is running on `github.prod.company.com` then                 |
-|                               | | ``REVIEWNB_BASE_URL`` should also end with `.company.com`                     |
+|                               | | E.g. If your GHE is running on `github.prod.your-company.com` then            |
+|                               | | ``REVIEWNB_BASE_URL`` should also end with `.your-company.com`                |
 +-------------------------------+---------------------------------------------------------------------------------+
 | ``DB_URL``                    | :ref:`create_database`                                                          |
 +-------------------------------+---------------------------------------------------------------------------------+
@@ -130,7 +130,7 @@ Domain Name & HTTPS Support
 At this point, the application is simply running on port 80 and 443 on an instance. You should,
 
 - Add a load balancer with HTTPS support in front of the instance. The exact steps depend on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
-- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remember endpoint (e.g. *reviewnb.xyz-company.com*)
+- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remember endpoint (e.g. *reviewnb.your-company.com*)
 
 Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
 
