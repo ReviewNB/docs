@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Overview &mdash; ReviewNB 0.2.12 documentation</title>
+  <title>Overview &mdash; ReviewNB Docs</title>
   
 
   
@@ -19,6 +19,8 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
   
   
+  
+    <link rel="canonical" href="https://docs.reviewnb.com/self-hosting/overview.html"/>
   
 
   
@@ -39,7 +41,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Installation" href="docker.html" />
-    <link rel="prev" title="Self Hosted ReviewNB" href="index.html" /> 
+    <link rel="prev" title="Self-Hosted ReviewNB" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -59,13 +61,6 @@
           
           </a>
 
-          
-            
-            
-              <div class="version">
-                0.2.12
-              </div>
-            
           
 
           
@@ -91,7 +86,7 @@
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self-Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Overview</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#postgresql-db">PostgreSQL DB</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reviewnb-application">ReviewNB Application</a></li>
@@ -103,8 +98,7 @@
 <li class="toctree-l2"><a class="reference internal" href="database.html">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrate-v1.html">Migrate From 0.1.x to 0.2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">Update Self-Hosted ReviewNB</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
@@ -154,7 +148,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
+          <li><a href="index.html">Self-Hosted ReviewNB</a> &raquo;</li>
         
       <li>Overview</li>
     
@@ -177,10 +171,10 @@
             
   <div class="section" id="overview">
 <h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
-<p>This is an architectural overview of ReviewNB’s self hosted offering. The application is distributed as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>.
+<p>This is an architectural overview of ReviewNB’s self-hosted offering. The application is distributed as a docker image via <a href="https://quay.io/" target="_blank">Quay</a>.
 Application communicates with your GitHub repositories &amp; offers a code review workflow for Jupyter notebooks on GitHub.</p>
 <img alt="../_images/overview_dig.png" class="align-center" src="../_images/overview_dig.png" />
-<p>There are 3 main components - <em>PostgreSQL DB, ReviewNB Application</em> &amp; <em>GitHub App</em>. Details of each are present below. In a self hosted setup you create &amp; fully control all three components. Here’s a <a class="reference internal" href="docker.html#docker-installation"><span class="std std-ref">step-by-step installation guide</span></a> if you want to dig into the details.</p>
+<p>There are 3 main components - <em>PostgreSQL DB, ReviewNB Application</em> &amp; <em>GitHub App</em>. Details of each are present below. In a self-hosted setup you create &amp; fully control all three components. Here’s a <a class="reference internal" href="docker.html#docker-installation"><span class="std std-ref">step-by-step installation guide</span></a> if you want to dig into the details.</p>
 <div class="section" id="postgresql-db">
 <h2>PostgreSQL DB<a class="headerlink" href="#postgresql-db" title="Permalink to this headline">¶</a></h2>
 <p>The DB stores user identity, repository metadata and notebook comments. More specifically it contains,</p>
@@ -203,37 +197,37 @@ Application communicates with your GitHub repositories &amp; offers a code revie
 </div>
 <div class="section" id="github-app">
 <h2>GitHub App<a class="headerlink" href="#github-app" title="Permalink to this headline">¶</a></h2>
-<p>This is a GitHub App that you create and configure on GitHub cloud or on your own GitHub Enterprise instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has &amp; so on. See <a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a> for more details.</p>
+<p>This is a GitHub App that you create and configure on GitHub.com or on your own GitHub Enterprise Server instance. This represents the ReviewNB app on GitHub. It lets you configure which repositories the app will have access to, what kind of permission it has &amp; so on. See <a class="reference internal" href="gh_app.html#create-github-app"><span class="std std-ref">Create GitHub App</span></a> for more details.</p>
 </div>
 </div>
 <div class="section" id="faq">
 <h1>FAQ<a class="headerlink" href="#faq" title="Permalink to this headline">¶</a></h1>
 <dl>
-<dt>Does ReviewNB work with GitHub Enterprise?</dt><dd><p>Yes. Our self hosted installation works with GitHub Enterprise &amp; GitHub.com both.</p>
+<dt>Does self-hosted ReviewNB work with GitHub Enterprise Server?</dt><dd><p>Yes. Self-hosted ReviewNB works with both GitHub Enterprise Server &amp; GitHub.com. Bitbucket Cloud is supported on hosted ReviewNB.</p>
 </dd>
-<dt>How long does it take to setup a self hosted ReviewNB instance?</dt><dd><p>It takes about ~2 hours to set everything up.</p>
+<dt>How long does it take to set up a self-hosted ReviewNB instance?</dt><dd><p>It takes about ~2 hours to set everything up.</p>
 </dd>
 <dt>How much effort is required for maintenance?</dt><dd><ul class="simple">
 <li><p>There’s no maintenance required of you apart from periodic updates.</p></li>
 <li><p>We notify you when an update is available. Update process shouldn’t take more than a few minutes (you simply pull docker image with the new tag)</p></li>
 </ul>
 </dd>
-<dt>Does the application makes any call back to “home”?</dt><dd><p>No. The application does <strong>not</strong> make any calls back to ReviewNB infrastructure. Even the licensing information is pre-baked into your docker image.</p>
+<dt>Does the application make any calls back to “home”?</dt><dd><p>No. The application does <strong>not</strong> make any calls back to ReviewNB infrastructure. Even the licensing information is pre-baked into your docker image.</p>
 </dd>
-<dt>How secure is self hosted ReviewNB?</dt><dd><p>Most important thing for us &amp; all our self hosted customers is security &amp; privacy of their data/notebooks. With that in mind, here’s our security design overview -</p>
+<dt>How secure is self-hosted ReviewNB?</dt><dd><p>Most important thing for us &amp; all our self-hosted customers is security &amp; privacy of their data/notebooks. With that in mind, here’s our security design overview -</p>
 <blockquote>
 <div><ul class="simple">
 <li><p>The application does not make any calls back to ReviewNB infrastructure. All the data is stored securely under your own control.</p></li>
-<li><p>You can (and should) restrict the outbound access of ReviewNB service only to Github.com &amp; your own SMTP server (except for fetching data from GitHub &amp; sending emails to users, the application does not need to talk to outside world)</p></li>
+<li><p>You can (and should) restrict the outbound access of ReviewNB service only to GitHub.com &amp; your own SMTP server (except for fetching data from GitHub &amp; sending emails to users, the application does not need to talk to outside world)</p></li>
 <li><p>You can (and should) restrict the inbound access to your own corporate VPN. Nobody outside your company network can access the ReviewNB application.</p></li>
-<li><p>If you’re using ReviewNB with GitHub Cloud then you also need to permit inbound access from GitHub for webhook delivery to <cite>/gh/webhook/</cite> endpoint. You can find a list of <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses" target="_blank">GitHub IP addresses</a> here.</p></li>
+<li><p>If you’re using ReviewNB with GitHub.com then you also need to permit inbound access from GitHub for webhook delivery to <cite>/gh/webhook/</cite> endpoint. You can find a list of <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses" target="_blank">GitHub IP addresses</a> here.</p></li>
 <li><p>You can (and should) <strong>only</strong> allow inbound access to PostgresDB from ReviewNB application.</p></li>
 <li><p>GitHub API key for the user is stored in DB with AES encryption.</p></li>
 <li><p>Every time a user logs out and logs back in we create a new GitHub API key (as part of the GitHub OAuth login flow), effectively making the old keys defunct.</p></li>
-<li><p>Our app has been <a href="https://docs.github.com/en/developers/github-marketplace/requirements-for-listing-an-app#security" target="_blank">verified by GitHub</a> team &amp; approved for sell on GitHub marketplace. You can see <strong>Verified by GitHub</strong> badge on our <a href="https://github.com/marketplace/review-notebook-app" target="_blank">marketplace listing</a>.</p></li>
+<li><p>Our app has been <a href="https://docs.github.com/en/developers/github-marketplace/requirements-for-listing-an-app#security" target="_blank">verified by GitHub</a> team &amp; approved for sale on GitHub marketplace. You can see <strong>Verified by GitHub</strong> badge on our <a href="https://github.com/marketplace/review-notebook-app" target="_blank">marketplace listing</a>.</p></li>
 </ul>
 </div></blockquote>
-<p>Our self hosted offering has been reviewed, approved &amp; currently being used by organizations such as AirBnB, Lyft, Deloitte, Royal Bank of Canada, NASA JPL &amp; many more.</p>
+<p>Our self-hosted offering has been reviewed, approved &amp; currently being used by organizations such as Airbnb, Lyft, Spotify, NASA JPL &amp; many more.</p>
 </dd>
 </dl>
 </div>
@@ -249,7 +243,7 @@ Application communicates with your GitHub repositories &amp; offers a code revie
         <a href="docker.html" class="btn btn-neutral float-right" title="Installation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral float-left" title="Self Hosted ReviewNB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Self-Hosted ReviewNB" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -259,7 +253,7 @@ Application communicates with your GitHub repositories &amp; offers a code revie
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2018, ReviewNB
+        &copy; Copyright 2018-2026, ReviewNB
 
     </p>
   </div>

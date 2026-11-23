@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Create Database &mdash; ReviewNB 0.2.12 documentation</title>
+  <title>Create Database &mdash; ReviewNB Docs</title>
   
 
   
@@ -19,6 +19,8 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
   
   
+  
+    <link rel="canonical" href="https://docs.reviewnb.com/self-hosting/database.html"/>
   
 
   
@@ -60,13 +62,6 @@
           </a>
 
           
-            
-            
-              <div class="version">
-                0.2.12
-              </div>
-            
-          
 
           
 <div role="search">
@@ -91,15 +86,14 @@
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self-Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#faq">FAQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Create Database</a></li>
 <li class="toctree-l2"><a class="reference internal" href="gh_app.html">Create GitHub App</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bot_comments.html">Verify Bot Comments</a></li>
-<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrate-v1.html">Migrate From 0.1.x to 0.2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">Update Self-Hosted ReviewNB</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
@@ -149,7 +143,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
+          <li><a href="index.html">Self-Hosted ReviewNB</a> &raquo;</li>
         
       <li>Create Database</li>
     
@@ -174,7 +168,7 @@
 <span id="id1"></span><h1>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h1>
 <p>ReviewNB requires a PostgreSQL database to store user identity and other essential data. DB instance requirements are fairly low. Here’s the minimum spec we need,</p>
 <ul class="simple">
-<li><p>PostgreSQL Version - 9.5 and above</p></li>
+<li><p>PostgreSQL Version - 14 and above</p></li>
 <li><p>Memory - 1GB minimum</p></li>
 <li><p>Disk Space - 16GB minimum</p></li>
 </ul>
@@ -184,13 +178,13 @@
 </div>
 <p>Once your DB instance is running, connect to it via <em>psql</em> and create a new database.</p>
 <blockquote>
-<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgrs://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
+<div><div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$</span> psql postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/postgres
 
 <span class="go">postgres=&gt; CREATE DATABASE rnb;</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p>Note down the database connection string in the followign format. DB_NAME is the name of our newly created database. We’ll need to supply the following string as <em>DB_URL</em> environment variable on ReviewNB container.</p>
+<p>Note down the database connection string in the following format. DB_NAME is the name of our newly created database. We’ll need to supply the following string as <em>DB_URL</em> environment variable on ReviewNB container.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">postgres://USERNAME:PASSWORD@DB_ENDPOINT:DB_PORT/DB_NAME</span>
 </pre></div>
 </div>
@@ -217,7 +211,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2018, ReviewNB
+        &copy; Copyright 2018-2026, ReviewNB
 
     </p>
   </div>

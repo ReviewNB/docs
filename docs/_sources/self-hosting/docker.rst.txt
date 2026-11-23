@@ -5,7 +5,7 @@
 Installation
 =====================
 
-ReviewNB application is distributed as a docker image via |Quay|. Once your on-prem request is approved, we create a private docker image for your use & grant you access to it.
+ReviewNB application is distributed as a docker image via |Quay|. Once your self-hosting request is approved, we create a private docker image for your use & grant you access to it.
 
 You can use deployment tool of your choice to run the docker image. Below, we show a simple way to run the docker image from command line.
 
@@ -14,7 +14,7 @@ You can use deployment tool of your choice to run the docker image. Below, we sh
 
 Hardware
 --------------------------
-ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 8GB of memory. Go higher on memory if your notebooks tend to be larger or you are expecting lot of concurrent users.
+ReviewNB can pretty much run on any hardware. The only real requirement is to have at least 8GB of memory. Go higher on memory if your notebooks tend to be larger or you are expecting a lot of concurrent users.
 
 Prerequisite
 --------------------------
@@ -22,13 +22,13 @@ Prerequisite
 * Credentials to pull your private docker image from Quay. You should've received it in registration email. If not, write to us at `support@reviewnb.com`
 * :ref:`create_github_app`
 * :ref:`create_database`
-* Following SMTP server credentials are required. This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation. You can use the same SMTP settings that you are using with GitHub Enterprise or any other SMTP server you might have.
+* Following SMTP server credentials are required. This is to notify users when there is a new comment on their notebooks or somebody replies to a conversation. You can use the same SMTP settings that you are using with GitHub Enterprise Server or any other SMTP server you might have.
 
    * *EMAIL_HOST*: URL of SMTP server
    * *EMAIL_PORT*: Port number of SMTP server (defaults to port 587 if none specified)
    * *EMAIL_HOST_USER*: Username to authenticate with SMTP server
    * *EMAIL_HOST_PASSWORD*: Password to authenticate with SMTP server
-   * *SENDER_EMAIL_ADDRESS*: Email address of the sender e.g. *no-reply@<your-domain>.com*
+   * *SENDER_EMAIL_ADDRESS*: Email address of the sender e.g. *no-reply@your-company.com*
 
 
 .. _pull_and_run_docker_image:
@@ -49,7 +49,7 @@ Run the image
 
 .. _run_docker_image:
 
-* Run the docker image. Substitue all `-`-env variables with your own values as explained in the table below this command.
+* Run the docker image. Substitute all `-`-env variables with your own values as explained in the table below this command.
 
   .. code-block:: console
 
@@ -59,15 +59,15 @@ Run the image
     --env GITHUB_APP_ID="1" \
     --env GITHUB_CLIENT_ID="Iv1.5a6123881f61e84c" \
     --env GITHUB_CLIENT_SECRET="2c40dbe73d8rdg3b7c37fbbab5d376b174b53deb" \
-    --env GITHUB_BASE_URL="https://github.corp.your-company-domain.com" \
-    --env GITHUB_APP_URL="https://ghes.nurtch.com/github-apps/reviewnb-for-nurtch" \
-    --env REVIEWNB_BASE_URL="https://reviewnb.nurtch.com" \
+    --env GITHUB_BASE_URL="https://github.your-company.com" \
+    --env GITHUB_APP_URL="https://github.your-company.com/github-apps/reviewnb-for-your-company" \
+    --env REVIEWNB_BASE_URL="https://reviewnb.your-company.com" \
     --env DB_URL="postgres://username:pwd@host:5432/database" \
     --env EMAIL_HOST="<your-smtp-server-url>" \
     --env EMAIL_PORT="<your-smtp-server-port>" \
     --env EMAIL_HOST_USER="<your-smtp-server-username>" \
     --env EMAIL_HOST_PASSWORD="<your-smtp-server-password>" \
-    --env SENDER_EMAIL_ADDRESS="no-reply@<your-domain>.com" \
+    --env SENDER_EMAIL_ADDRESS="no-reply@your-company.com" \
     --env TEST_EMAIL_ADDRESS="<email-address-on-which-test-email-will-be-sent>" \
     --env GITHUB_APP_PEM="-----BEGIN RSA PRIVATE KEY-----\nMI<really-long-pem-key>Z9huMC\n-----END RSA PRIVATE KEY-----\n" \
     quay.io/reviewnb/<your-company-name>:<reviewnb-version>
@@ -79,16 +79,16 @@ Source for environment variables,
 +-------------------------------+---------------------------------------------------------------------------------+
 | `-`-env variables             | Source                                                                          |
 +===============================+=================================================================================+
-| ``GITHUB_BASE_URL``           | | Endpoint at which your company's GitHub enterprise instance is running        |
+| ``GITHUB_BASE_URL``           | | Endpoint at which your company's GitHub Enterprise Server instance is running |
 |                               | |                                                                               |
-|                               | | If you are using ReviewNB with github.com then use ``https://github.com``     |
+|                               | | If you are using ReviewNB with GitHub.com then use ``https://github.com``     |
 +-------------------------------+---------------------------------------------------------------------------------+
-| ``REVIEWNB_BASE_URL``         | | Endpoint at which your self hosted ReviewNB will be running                   |
+| ``REVIEWNB_BASE_URL``         | | Endpoint at which your self-hosted ReviewNB will be running                   |
 |                               | |                                                                               |
-|                               | | If you are using ReviewNB with self hosted GitHub Enterprise (GHE) then       |
+|                               | | If you are using ReviewNB with GitHub Enterprise Server (GHE) then            |
 |                               | | ``REVIEWNB_BASE_URL`` should have same top level domain as ``GITHUB_BASE_URL``|
-|                               | | E.g. If you're GHE is running on `github.prod.company.com` then               |
-|                               | | ``REVIEWNB_BASE_URL`` should also end with `.company.com`                     |
+|                               | | E.g. If your GHE is running on `github.prod.your-company.com` then            |
+|                               | | ``REVIEWNB_BASE_URL`` should also end with `.your-company.com`                |
 +-------------------------------+---------------------------------------------------------------------------------+
 | ``DB_URL``                    | :ref:`create_database`                                                          |
 +-------------------------------+---------------------------------------------------------------------------------+
@@ -109,10 +109,12 @@ Source for environment variables,
 | ``EMAIL_USE_TLS`` (optional)  | Set this to "0" if your SMTP server does not support TLS protocol.              |
 +-------------------------------+---------------------------------------------------------------------------------+
 
+Optional, for GitHub.com only: ``ENFORCE_EMAIL_DOMAIN_CHECK`` & ``ALLOWED_EMAIL_DOMAINS``, see :ref:`restrict_login`.
+
 Verify Installation
 --------------------------
 Visit the endpoint where container is running (endpoint could even be an ip address for the sake of verification). You should see the login page without any errors on it.
-Do not login just yet, you can login after adding HTTPS suppport (last step below).
+Do not login just yet, you can login after adding HTTPS support (last step below).
 
 .. image:: ../images/login_page_2.png
    :align: center
@@ -127,8 +129,8 @@ Domain Name & HTTPS Support
 ----------------------------
 At this point, the application is simply running on port 80 and 443 on an instance. You should,
 
-- Add a load balancer with HTTPS support in front of the instance. The exact steps depends on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
-- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remeber endpoint (e.g. *reviewnb.xyz-company.com*)
+- Add a load balancer with HTTPS support in front of the instance. The exact steps depend on the infrastructure you are using. E.g. Create ALB for container running on AWS EC2
+- Add a CNAME entry that points ``REVIEWNB_BASE_URL`` to your load balancer. That way the application is accessible on easy to remember endpoint (e.g. *reviewnb.your-company.com*)
 
 Once the HTTPS support is added, you can set an additional environment variable ``SSL_REDIRECT=1`` to redirect all HTTP traffic to be served via secure HTTPS protocol.
 
@@ -171,3 +173,28 @@ Optional Tips
 Some handy tips for ReviewNB users,
 
 - All notebook, repository, commit, and PR URLs on ReviewNB intentionally have the same URL structure as that of GitHub. So you can use |dynamic bookmarks| to quickly jump back & forth between ReviewNB & GitHub.
+
+.. _restrict_login:
+
+Restrict Login to Your Organization (GitHub.com only)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. note::
+  This section only applies if you are connecting your self-hosted ReviewNB instance to your organization on GitHub.com. If you are using GitHub Enterprise Server (GHE), you can skip this section.
+
+If your ReviewNB instance is publicly accessible and connected to GitHub.com, then by default anyone with a GitHub.com account can log in. They only see what their own GitHub account can already access, but they do take up a seat.
+
+We recommend keeping ReviewNB on your internal network. Otherwise, set these environment variables to restrict login,
+
+  .. code-block:: console
+
+    --env ENFORCE_EMAIL_DOMAIN_CHECK="1" \
+    --env ALLOWED_EMAIL_DOMAINS="your-company.com" \
+
+Then only users with a **verified** email address on your company's domain on their GitHub account can log in. Everyone else sees an "Access Restricted" page that explains how to add & verify their work email on GitHub (`GitHub email settings <https://github.com/settings/emails>`_).
+
+Good to know,
+
+- ``ALLOWED_EMAIL_DOMAINS`` takes a comma-separated list (e.g. ``"your-company.com, subsidiary.com"``). Subdomains (e.g. ``eng.your-company.com``) are allowed too. Add a domain here to let in contractors or guests who don't have a company email address.
+- The check runs at login. Users who are already logged in stay logged in until their session expires.
+- To turn the check off, set ``ENFORCE_EMAIL_DOMAIN_CHECK=0`` and restart the container.

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Verify Bot Comments &mdash; ReviewNB 0.2.12 documentation</title>
+  <title>Verify Bot Comments &mdash; ReviewNB Docs</title>
   
 
   
@@ -19,6 +19,8 @@
     <link rel="shortcut icon" href="../_static/favicon.png"/>
   
   
+  
+    <link rel="canonical" href="https://docs.reviewnb.com/self-hosting/bot_comments.html"/>
   
 
   
@@ -38,7 +40,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Update On-Prem ReviewNB" href="update.html" />
+    <link rel="next" title="Update Self-Hosted ReviewNB" href="update.html" />
     <link rel="prev" title="Create GitHub App" href="gh_app.html" /> 
 </head>
 
@@ -59,13 +61,6 @@
           
           </a>
 
-          
-            
-            
-              <div class="version">
-                0.2.12
-              </div>
-            
           
 
           
@@ -91,7 +86,7 @@
               <p class="caption"><span class="caption-text">Table of Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../hosted/index.html">Hosted ReviewNB</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self Hosted ReviewNB</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Self-Hosted ReviewNB</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="overview.html">Overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="overview.html#faq">FAQ</a></li>
 <li class="toctree-l2"><a class="reference internal" href="docker.html">Installation</a></li>
@@ -101,8 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#how-to-verify">How to Verify</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="update.html">Update On-Prem ReviewNB</a></li>
-<li class="toctree-l2"><a class="reference internal" href="migrate-v1.html">Migrate From 0.1.x to 0.2.x</a></li>
+<li class="toctree-l2"><a class="reference internal" href="update.html">Update Self-Hosted ReviewNB</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../testimonials.html">Testimonials</a></li>
@@ -152,7 +146,7 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-          <li><a href="index.html">Self Hosted ReviewNB</a> &raquo;</li>
+          <li><a href="index.html">Self-Hosted ReviewNB</a> &raquo;</li>
         
       <li>Verify Bot Comments</li>
     
@@ -177,7 +171,7 @@
 <span id="bot-comments"></span><h1>Verify Bot Comments<a class="headerlink" href="#verify-bot-comments" title="Permalink to this headline">¶</a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This verification happens at the very end after ReviewNB is installed and you can login succesfully.</p>
+<p>This verification happens at the very end after ReviewNB is installed and you can login successfully.</p>
 </div>
 <p>Anytime a new Pull Request is opened (containing notebook changes), our bot posts a comment to access this Pull Request in ReviewNB. See screenshot below. It’s a very useful feature to quickly jump from GitHub to ReviewNB.</p>
 <img alt="../_images/bot_message.png" class="align-center" src="../_images/bot_message.png" />
@@ -192,7 +186,7 @@
 <p>If you are not seeing bot comments there’s likely something wrong with GitHub webhook delivery. You can take following troubleshooting steps,</p>
 <ul class="simple">
 <li><p>Head over to your newly created GitHub App -&gt; Advanced Tab. You can see webhook delivery failure reasons.</p></li>
-<li><p>If all webhook deliveries are failing with ‘Service Timeout’ or similar errors. Please make sure that your GitHub enterprise instance can make outbound calls to your on-prem ReviewNB.</p></li>
+<li><p>If all webhook deliveries are failing with ‘Service Timeout’ or similar errors, please make sure that your GitHub Enterprise Server instance can make outbound calls to your self-hosted ReviewNB.</p></li>
 <li><p>Look at container logs (<code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">logs</span> <span class="pre">&lt;container-id&gt;</span></code>) to see if logs are complaining about something.</p></li>
 <li><p>If still not resolved, write to us at <cite>support&#64;reviewnb.com</cite></p></li>
 </ul>
@@ -207,7 +201,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="update.html" class="btn btn-neutral float-right" title="Update On-Prem ReviewNB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="update.html" class="btn btn-neutral float-right" title="Update Self-Hosted ReviewNB" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="gh_app.html" class="btn btn-neutral float-left" title="Create GitHub App" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -220,7 +214,7 @@
   <div role="contentinfo">
     <p>
         
-        &copy; Copyright 2018, ReviewNB
+        &copy; Copyright 2018-2026, ReviewNB
 
     </p>
   </div>

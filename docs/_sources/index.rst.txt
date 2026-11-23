@@ -1,12 +1,12 @@
 .. include:: globals.rst
 
-Welcome to ReviewNB's documentation!
-====================================
+ReviewNB: Code Review for Jupyter Notebooks
+===========================================
 Have trouble collaborating on Jupyter Notebooks?
 
-Join |thousands of organizations| like *Microsoft, Meta, Lyft, AirBnB, AWS, Affirm, AMD, NASA JPL* & many more using ReviewNB to streamline Data Science collaboration.
+Join |thousands of organizations| like *Airbnb, Spotify, Lyft, Affirm, NASA JPL, Microsoft* & many more using ReviewNB to streamline Data Science collaboration.
 
-|ReviewNB| offers code review workflow for Jupyter Notebooks that's fully integrated with GitHub & Bitbucket repositories.
+|ReviewNB| offers code review workflow for Jupyter Notebooks that's fully integrated with GitHub (GitHub.com & GitHub Enterprise Server) & Bitbucket Cloud repositories.
 
   * |Visual diff| for every commit or pull request containing Notebooks
   * |Commenting| on the notebook diff to start discussion
