@@ -15,11 +15,11 @@ Pull new docker image
 -------------------------------------
 * SSH onto the box where ReviewNB is running.
 
-* Login (via docker CLI) to Quay docker registry with the credentials we sent you in the initial registration email.
+* If you aren't already logged in, log in (via docker CLI) to Quay docker registry with the credentials we sent you in the initial registration email. Docker will prompt for the password.
 
   .. code-block:: console
 
-    $ docker login -u="<username>" -p="<password>" quay.io
+    $ docker login -u="<username>" quay.io
 
 * Pull the docker image. Image name & tag would be available in the upgrade email.
 
@@ -34,15 +34,22 @@ You will be stopping the old ReviewNB version in this step. Note that the servic
 
 * Note down the container ID
 
-.. code-block:: console
+  .. code-block:: console
 
     $ docker ps
     CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS               NAMES
 
-* Stop the running container
+* Stop and remove the running container
 
-.. code-block:: console
+  .. code-block:: console
 
-    $ docker kill <container_id>
+    $ docker stop <container_id> && docker rm <container_id>
 
-* :ref:`Run new container <run_docker_image>`. [Tip: Our `docker run` command requires that you specify all environment variables. You can simply find the old `docker run` command with shell command history (ctrl+r) on Linux. Then you only need to replace the image tag on that command with a new one.]
+* :ref:`Run new container <run_docker_image>`.
+
+  .. tip::
+    Our ``docker run`` command requires that you specify all environment variables. You can simply find the old ``docker run`` command with shell command history (ctrl+r) on Linux. Then you only need to replace the image tag on that command with a new one.
+
+Verify the update
+-------------------------------------
+Visit your ReviewNB URL (``REVIEWNB_BASE_URL``). The login page shows the running version in its bottom-right corner. It should match the version in the upgrade email.
