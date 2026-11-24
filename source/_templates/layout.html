@@ -1,0 +1,10 @@
+{% extends "!layout.html" %}
+
+{#- Canonical URL for every page. The homepage is https://docs.reviewnb.com/ (not /index.html),
+    so the URL people link to stays the indexable one. All other pages: <base>/<page>.html #}
+{%- block extrahead %}
+  {{ super() }}
+  {%- if canonical_base %}
+  <link rel="canonical" href="{{ canonical_base }}{% if pagename != 'index' %}{{ pagename }}.html{% endif %}"/>
+  {%- endif %}
+{%- endblock %}
